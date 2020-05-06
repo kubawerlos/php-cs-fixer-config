@@ -39,7 +39,6 @@ final class NonDefaultConfiguration
         $rules['native_function_invocation'] = ['include' => ['@all']];
         $rules['no_extra_blank_lines'] = ['tokens' => ['continue', 'curly_brace_block', 'extra', 'parenthesis_brace_block', 'return', 'square_brace_block', 'throw', 'use', 'use_trait']];
         $rules['php_unit_test_case_static_method_calls'] = ['call_type' => 'self'];
-        $rules['phpdoc_line_span'] = ['property' => 'single'];
         $rules['visibility_required'] = ['elements' => ['const', 'method', 'property']];
         $rules['yoda_style'] = ['equal' => false, 'identical' => false, 'less_and_greater' => false];
         $rules[NoSuperfluousConcatenationFixer::name()] = ['allow_preventing_trailing_spaces' => true];
