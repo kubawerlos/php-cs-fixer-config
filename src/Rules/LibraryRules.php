@@ -246,7 +246,6 @@ the LICENSE file that was distributed with this source code.
             'phpdoc_scalar' => true,
             'phpdoc_separation' => true,
             'phpdoc_single_line_var_spacing' => true,
-            'phpdoc_summary' => true,
             'phpdoc_to_comment' => true,
             'phpdoc_to_param_type' => true,
             'phpdoc_to_return_type' => true,

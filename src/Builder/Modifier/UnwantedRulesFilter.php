@@ -37,6 +37,7 @@ final class UnwantedRulesFilter
                 'not_operator_with_space',
                 'not_operator_with_successor_space',
                 'php_unit_size_class',
+                'phpdoc_summary',
                 'psr0',
             ] as $rule
         ) {
