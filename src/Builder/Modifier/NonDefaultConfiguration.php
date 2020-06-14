@@ -38,6 +38,7 @@ final class NonDefaultConfiguration
         $rules['method_argument_space'] = ['on_multiline' => 'ensure_fully_multiline'];
         $rules['native_function_invocation'] = ['include' => ['@all']];
         $rules['no_extra_blank_lines'] = ['tokens' => ['continue', 'curly_brace_block', 'extra', 'parenthesis_brace_block', 'return', 'square_brace_block', 'throw', 'use', 'use_trait']];
+        $rules['no_superfluous_phpdoc_tags'] = ['remove_inheritdoc' => true];
         $rules['php_unit_test_case_static_method_calls'] = ['call_type' => 'self'];
         $rules['visibility_required'] = ['elements' => ['const', 'method', 'property']];
         $rules['yoda_style'] = ['equal' => false, 'identical' => false, 'less_and_greater' => false];
