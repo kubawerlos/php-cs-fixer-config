@@ -19,9 +19,9 @@ use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 
 /**
- * @internal
- *
  * @coversNothing
+ *
+ * @internal
  */
 final class SrcCodeTest extends TestCase
 {
