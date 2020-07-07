@@ -19,9 +19,9 @@ use PhpCsFixerConfig\Rules\LibraryRules;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @internal
- *
  * @covers \PhpCsFixerConfig\Rules\LibraryRules
+ *
+ * @internal
  */
 final class LibraryRulesTest extends TestCase
 {

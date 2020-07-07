@@ -56,6 +56,17 @@ final class Builder
         $content = \substr($content, 0, \strpos($content, 'public function getRules()'))
             . \sprintf('public function getRules(): array { return %s; }}', $array);
 
+        foreach ($rules->getRules() as $rule => $config) {
+            if (\strpos($rule, 'PhpCsFixerCustomFixers') !== 0) {
+                continue;
+            }
+            $content = \str_replace(
+                \sprintf("'%s'", $rule),
+                \sprintf('Fixer\\%sFixer::name()', \ucfirst(\str_replace([' ', 'PhpCsFixerCustomFixers/'], '', \ucwords(\str_replace('_', ' ', $rule))))),
+                $content
+            );
+        }
+
         \file_put_contents($path, $content);
     }
 }

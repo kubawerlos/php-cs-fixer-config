@@ -19,9 +19,9 @@ use PhpCsFixerConfig\Rules\ProjectRules;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @internal
- *
  * @covers \PhpCsFixerConfig\Rules\ProjectRules
+ *
+ * @internal
  */
 final class ProjectRulesTest extends TestCase
 {
