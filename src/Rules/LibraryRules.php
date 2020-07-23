@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * This file is part of kubawerlos/php-cs-fixer-config.
  *
@@ -10,6 +8,8 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  */
+
+declare(strict_types=1);
 
 namespace PhpCsFixerConfig\Rules;
 
@@ -120,6 +120,7 @@ the LICENSE file that was distributed with this source code.
             'function_typehint_space' => true,
             'header_comment' => [
                 'header' => $this->header,
+                'location' => 'after_open',
             ],
             'heredoc_to_nowdoc' => true,
             'implode_call' => true,

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /*
  * This file is part of kubawerlos/php-cs-fixer-config.
  *
@@ -10,6 +8,8 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  */
+
+declare(strict_types=1);
 
 namespace PhpCsFixerConfig\Builder\Modifier;
 
@@ -32,7 +32,7 @@ final class LibraryRulesModifier
         unset($rules['mb_str_functions']);
         unset($rules[NoNullableBooleanTypeFixer::name()]);
 
-        $rules['header_comment'] = ['header' => '__HEADER_PLACEHOLDER__'];
+        $rules['header_comment'] = ['header' => '__HEADER_PLACEHOLDER__', 'location' => 'after_open'];
         $rules[PhpdocOnlyAllowedAnnotationsFixer::name()] = ['elements' => ['covers', 'coversNothing', 'dataProvider', 'implements', 'internal', 'param', 'requires', 'return', 'var']];
 
         return $rules;
