@@ -41,7 +41,7 @@ final class UnwantedRulesFilter
                 'psr0',
             ] as $rule
         ) {
-            unset($rules[$rule]);
+            $rules[$rule] = false;
         }
 
         return $rules;

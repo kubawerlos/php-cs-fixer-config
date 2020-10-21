@@ -30,10 +30,13 @@ final class BuilderTest extends TestCase
         $nonDefaultConfiguration = new NonDefaultConfiguration();
         $unwantedRulesFilter = new UnwantedRulesFilter();
 
-        $rules = $nonDefaultConfiguration([]);
+        $nonDefaultRules = $nonDefaultConfiguration([]);
 
-        $wantedRules = $unwantedRulesFilter($rules);
+        $wantedRules = $unwantedRulesFilter($nonDefaultRules);
 
-        self::assertSame($rules, $wantedRules);
+        foreach (\array_keys($nonDefaultRules) as $nonDefaultRuleName) {
+            self::assertArrayHasKey($nonDefaultRuleName, $wantedRules, \sprintf('Non-default rules "%s" is not present.', $nonDefaultRuleName));
+            self::assertNotFalse($wantedRules[$nonDefaultRuleName], \sprintf('Non-default rules "%s" is disabled.', $nonDefaultRuleName));
+        }
     }
 }

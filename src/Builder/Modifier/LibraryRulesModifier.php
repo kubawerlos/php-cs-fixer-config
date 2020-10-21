@@ -28,9 +28,15 @@ final class LibraryRulesModifier
      */
     public function __invoke(array $rules): array
     {
-        unset($rules['heredoc_indentation']);
-        unset($rules['mb_str_functions']);
-        unset($rules[NoNullableBooleanTypeFixer::name()]);
+        foreach (
+            [
+                'heredoc_indentation',
+                'mb_str_functions',
+                NoNullableBooleanTypeFixer::name(),
+            ] as $rule
+        ) {
+            $rules[$rule] = false;
+        }
 
         $rules['header_comment'] = ['header' => '__HEADER_PLACEHOLDER__', 'location' => 'after_open'];
         $rules[PhpdocOnlyAllowedAnnotationsFixer::name()] = ['elements' => ['covers', 'coversNothing', 'dataProvider', 'implements', 'internal', 'param', 'requires', 'return', 'var']];

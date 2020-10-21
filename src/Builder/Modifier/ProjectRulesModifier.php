@@ -27,9 +27,15 @@ final class ProjectRulesModifier
      */
     public function __invoke(array $rules): array
     {
-        unset($rules['header_comment']);
-        unset($rules['php_unit_internal_class']);
-        unset($rules[PhpdocOnlyAllowedAnnotationsFixer::name()]);
+        foreach (
+            [
+                'header_comment',
+                'php_unit_internal_class',
+                PhpdocOnlyAllowedAnnotationsFixer::name(),
+            ] as $rule
+        ) {
+            $rules[$rule] = false;
+        }
 
         return $rules;
     }
