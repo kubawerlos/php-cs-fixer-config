@@ -39,7 +39,18 @@ final class LibraryRulesModifier
         }
 
         $rules['header_comment'] = ['header' => '__HEADER_PLACEHOLDER__', 'location' => 'after_open'];
-        $rules[PhpdocOnlyAllowedAnnotationsFixer::name()] = ['elements' => ['covers', 'coversNothing', 'dataProvider', 'implements', 'internal', 'param', 'requires', 'return', 'var']];
+        $rules[PhpdocOnlyAllowedAnnotationsFixer::name()] = ['elements' => [
+            'covers',
+            'coversNothing',
+            'dataProvider',
+            'deprecated',
+            'implements',
+            'internal',
+            'param',
+            'requires',
+            'return',
+            'var',
+        ]];
 
         return $rules;
     }

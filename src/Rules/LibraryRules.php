@@ -360,6 +360,7 @@ the LICENSE file that was distributed with this source code.
                     'covers',
                     'coversNothing',
                     'dataProvider',
+                    'deprecated',
                     'implements',
                     'internal',
                     'param',
