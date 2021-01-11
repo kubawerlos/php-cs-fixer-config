@@ -32,14 +32,14 @@ final class LibraryRulesTest extends TestCase
         $rules = new Rules();
         $rules->apply(new LibraryRulesModifier());
         $rules->apply(static function (array $rules): array {
-            $rules['header_comment']['header'] = \trim(\sprintf('
+            $rules['header_comment']['header'] = \trim('
 This file is part of library name.
 
-(c) 2000-%d library author
+(c) 2000 library author
 
 For the full copyright and license information, please view
 the LICENSE file that was distributed with this source code.
-        ', \date('Y')));
+        ');
 
             return $rules;
         });

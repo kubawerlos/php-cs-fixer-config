@@ -23,13 +23,8 @@ final class LibraryRules implements RulesInterface
     /** @var string */
     private $header;
 
-    public function __construct(string $library, string $author, int $startingYear)
+    public function __construct(string $name, string $author, int $year)
     {
-        $years = (string) $startingYear;
-        if ($startingYear < (int) \date('Y')) {
-            $years .= '-' . \date('Y');
-        }
-
         $this->header = \trim(\sprintf(
             '
 This file is part of %s.
@@ -39,8 +34,8 @@ This file is part of %s.
 For the full copyright and license information, please view
 the LICENSE file that was distributed with this source code.
         ',
-            $library,
-            $years,
+            $name,
+            $year,
             $author
         ));
     }
