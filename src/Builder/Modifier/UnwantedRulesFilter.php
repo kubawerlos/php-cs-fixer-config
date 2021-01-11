@@ -24,13 +24,13 @@ final class UnwantedRulesFilter
         'combine_consecutive_unsets',
         'general_phpdoc_annotation_remove',
         'global_namespace_import',
+        'group_import',
         'native_constant_invocation', // TODO: move to NonDefaultConfiguration with strict flag after PHP CS Fixer 2.17 is released
         'no_blank_lines_before_namespace',
         'not_operator_with_space',
         'not_operator_with_successor_space',
         'php_unit_size_class',
         'phpdoc_summary',
-        'psr0',
     ];
 
     /**
