@@ -13,7 +13,13 @@ declare(strict_types=1);
 
 namespace Tests\Builder\Modifier;
 
+use PhpCsFixer\Fixer\DeprecatedFixerInterface;
+use PhpCsFixer\Fixer\FixerInterface;
+use PhpCsFixer\FixerConfiguration\DeprecatedFixerOptionInterface;
+use PhpCsFixer\FixerFactory;
+use PhpCsFixer\RuleSet;
 use PhpCsFixerConfig\Builder\Modifier\NonDefaultConfiguration;
+use PhpCsFixerCustomFixers\Fixers;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -42,5 +48,61 @@ final class NonDefaultConfigurationTest extends TestCase
         );
 
         self::assertSame($sortedRules, $rules);
+    }
+
+    /**
+     * @dataProvider provideRuleCases
+     */
+    public function testRuleIsNotDeprecated(string $name, $config): void
+    {
+        self::assertNotInstanceOf(DeprecatedFixerInterface::class, $this->getFixer($name, true));
+    }
+
+    /**
+     * @dataProvider provideRuleCases
+     */
+    public function testConfigKeysAreSorted(string $name, $config): void
+    {
+        $sortedConfig = $config;
+        \ksort($sortedConfig);
+
+        self::assertSame($sortedConfig, $config);
+    }
+
+    /**
+     * @dataProvider provideRuleCases
+     */
+    public function testRuleIsNotUsingDefaultConfig(string $name, $config): void
+    {
+        $defaultConfig = [];
+        foreach ($this->getFixer($name, true)->getConfigurationDefinition()->getOptions() as $option) {
+            if ($option instanceof DeprecatedFixerOptionInterface) {
+                continue;
+            }
+
+            $defaultConfig[$option->getName()] = $option->getDefault();
+        }
+
+        \ksort($defaultConfig);
+
+        self::assertNotSame($defaultConfig, $config);
+    }
+
+    public static function provideRuleCases(): iterable
+    {
+        foreach ((new NonDefaultConfiguration())->__invoke([]) as $name => $config) {
+            yield $name => [$name, $config];
+        }
+    }
+
+    private function getFixer(string $name, $config): FixerInterface
+    {
+        $fixers = FixerFactory::create()
+            ->registerBuiltInFixers()
+            ->registerCustomFixers(\iterator_to_array(new Fixers()))
+            ->useRuleSet(new RuleSet([$name => $config]))
+            ->getFixers();
+
+        return $fixers[0];
     }
 }

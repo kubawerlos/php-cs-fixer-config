@@ -18,6 +18,21 @@ namespace PhpCsFixerConfig\Builder\Modifier;
  */
 final class UnwantedRulesFilter
 {
+    private const UNWANTED_RULES = [
+        'class_keyword_remove',
+        'combine_consecutive_issets',
+        'combine_consecutive_unsets',
+        'general_phpdoc_annotation_remove',
+        'global_namespace_import',
+        'native_constant_invocation', // TODO: move to NonDefaultConfiguration with strict flag after PHP CS Fixer 2.17 is released
+        'no_blank_lines_before_namespace',
+        'not_operator_with_space',
+        'not_operator_with_successor_space',
+        'php_unit_size_class',
+        'phpdoc_summary',
+        'psr0',
+    ];
+
     /**
      * @param array<string, mixed> $rules
      *
@@ -25,22 +40,7 @@ final class UnwantedRulesFilter
      */
     public function __invoke(array $rules): array
     {
-        foreach (
-            [
-                'class_keyword_remove',
-                'combine_consecutive_issets',
-                'combine_consecutive_unsets',
-                'general_phpdoc_annotation_remove',
-                'global_namespace_import',
-                'native_constant_invocation', // TODO: move to NonDefaultConfiguration with strict flag after PHP CS Fixer 2.17 is released
-                'no_blank_lines_before_namespace',
-                'not_operator_with_space',
-                'not_operator_with_successor_space',
-                'php_unit_size_class',
-                'phpdoc_summary',
-                'psr0',
-            ] as $rule
-        ) {
+        foreach (self::UNWANTED_RULES as $rule) {
             $rules[$rule] = false;
         }
 
