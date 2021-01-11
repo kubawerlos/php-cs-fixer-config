@@ -33,7 +33,7 @@ final class UnwantedRulesFilterTest extends TestCase
         $rules = $this->getRules();
 
         $sortedRules = $rules;
-        \ksort($sortedRules);
+        \sort($sortedRules);
 
         self::assertSame($sortedRules, $rules);
     }
