@@ -32,7 +32,6 @@ final class UnwantedRulesFilter
         'php_unit_size_class',
         'phpdoc_summary',
     ];
-
     /**
      * @param array<string, mixed> $rules
      *

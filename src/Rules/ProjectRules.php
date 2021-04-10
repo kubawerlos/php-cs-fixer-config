@@ -44,8 +44,9 @@ final class ProjectRules implements RulesInterface
             'cast_spaces' => true,
             'class_attributes_separation' => [
                 'elements' => [
-                    'method',
-                    'property',
+                    'const' => 'none',
+                    'method' => 'one',
+                    'property' => 'one',
                 ],
             ],
             'class_definition' => [

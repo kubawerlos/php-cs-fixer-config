@@ -64,8 +64,9 @@ the LICENSE file that was distributed with this source code.
             'cast_spaces' => true,
             'class_attributes_separation' => [
                 'elements' => [
-                    'method',
-                    'property',
+                    'const' => 'none',
+                    'method' => 'one',
+                    'property' => 'one',
                 ],
             ],
             'class_definition' => [

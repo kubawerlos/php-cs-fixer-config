@@ -13,9 +13,12 @@ declare(strict_types=1);
 
 namespace Tests\Rules;
 
+use PhpCsFixer\FixerFactory;
+use PhpCsFixer\RuleSet\RuleSet;
 use PhpCsFixerConfig\Builder\Modifier\LibraryRulesModifier;
 use PhpCsFixerConfig\Builder\Rules;
 use PhpCsFixerConfig\Rules\LibraryRules;
+use PhpCsFixerCustomFixers\Fixers;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -47,6 +50,22 @@ the LICENSE file that was distributed with this source code.
         self::assertSame(
             $rules->getRules(),
             $libraryRules->getRules()
+        );
+    }
+
+    public function testRulesBuildInConfig(): void
+    {
+        $rules = new LibraryRules('library name', 'library author', 2000);
+
+        $ruleSet = new RuleSet($rules->getRules());
+
+        $fixerFactory = new FixerFactory();
+        $fixerFactory->registerBuiltInFixers();
+        $fixerFactory->registerCustomFixers(\iterator_to_array(new Fixers()));
+
+        self::assertInstanceOf(
+            FixerFactory::class,
+            $fixerFactory->useRuleSet($ruleSet)
         );
     }
 }
