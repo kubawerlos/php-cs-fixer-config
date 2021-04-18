@@ -139,6 +139,8 @@ final class ProjectRules implements RulesInterface
                 'include' => [
                     '@all',
                 ],
+                'scope' => 'namespaced',
+                'strict' => true,
             ],
             'native_function_type_declaration_casing' => true,
             'new_with_braces' => true,
