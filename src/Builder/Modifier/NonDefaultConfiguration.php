@@ -36,6 +36,7 @@ final class NonDefaultConfiguration
         $rules['function_to_constant'] = ['functions' => ['get_called_class', 'get_class', 'get_class_this', 'php_sapi_name', 'phpversion', 'pi']];
         $rules['increment_style'] = ['style' => 'post'];
         $rules['method_argument_space'] = ['on_multiline' => 'ensure_fully_multiline'];
+        $rules['native_constant_invocation'] = ['scope' => 'namespaced',  'strict' => true];
         $rules['native_function_invocation'] = ['include' => ['@all']];
         $rules['no_extra_blank_lines'] = ['tokens' => ['continue', 'curly_brace_block', 'extra', 'parenthesis_brace_block', 'return', 'square_brace_block', 'throw', 'use', 'use_trait']];
         $rules['no_superfluous_phpdoc_tags'] = ['remove_inheritdoc' => true];

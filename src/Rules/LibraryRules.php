@@ -153,7 +153,10 @@ the LICENSE file that was distributed with this source code.
             'modernize_types_casting' => true,
             'multiline_comment_opening_closing' => true,
             'multiline_whitespace_before_semicolons' => true,
-            'native_constant_invocation' => false,
+            'native_constant_invocation' => [
+                'scope' => 'namespaced',
+                'strict' => true,
+            ],
             'native_function_casing' => true,
             'native_function_invocation' => [
                 'include' => [
