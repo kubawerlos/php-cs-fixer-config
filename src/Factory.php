@@ -33,7 +33,7 @@ final class Factory
 
     private static function create(Rules\RulesInterface $rules): ConfigInterface
     {
-        return Config::create()
+        return (new Config())
             ->registerCustomFixers(new \PhpCsFixerCustomFixers\Fixers())
             ->setRiskyAllowed(true)
             ->setRules($rules->getRules());

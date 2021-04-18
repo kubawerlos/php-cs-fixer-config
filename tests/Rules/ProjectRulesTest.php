@@ -13,9 +13,12 @@ declare(strict_types=1);
 
 namespace Tests\Rules;
 
+use PhpCsFixer\FixerFactory;
+use PhpCsFixer\RuleSet\RuleSet;
 use PhpCsFixerConfig\Builder\Modifier\ProjectRulesModifier;
 use PhpCsFixerConfig\Builder\Rules;
 use PhpCsFixerConfig\Rules\ProjectRules;
+use PhpCsFixerCustomFixers\Fixers;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -35,6 +38,22 @@ final class ProjectRulesTest extends TestCase
         self::assertSame(
             $rules->getRules(),
             $projectRules->getRules()
+        );
+    }
+
+    public function testRulesBuildInConfig(): void
+    {
+        $rules = new ProjectRules();
+
+        $ruleSet = new RuleSet($rules->getRules());
+
+        $fixerFactory = new FixerFactory();
+        $fixerFactory->registerBuiltInFixers();
+        $fixerFactory->registerCustomFixers(\iterator_to_array(new Fixers()));
+
+        self::assertInstanceOf(
+            FixerFactory::class,
+            $fixerFactory->useRuleSet($ruleSet)
         );
     }
 }
