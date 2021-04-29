@@ -17,7 +17,7 @@ use PhpCsFixer\Fixer\DeprecatedFixerInterface;
 use PhpCsFixer\Fixer\FixerInterface;
 use PhpCsFixer\FixerConfiguration\DeprecatedFixerOptionInterface;
 use PhpCsFixer\FixerFactory;
-use PhpCsFixer\RuleSet;
+use PhpCsFixer\RuleSet\RuleSet;
 use PhpCsFixerConfig\Builder\Modifier\NonDefaultConfiguration;
 use PhpCsFixerCustomFixers\Fixers;
 use PHPUnit\Framework\TestCase;
@@ -97,7 +97,7 @@ final class NonDefaultConfigurationTest extends TestCase
 
     private function getFixer(string $name, $config): FixerInterface
     {
-        $fixers = FixerFactory::create()
+        $fixers = (new FixerFactory())
             ->registerBuiltInFixers()
             ->registerCustomFixers(\iterator_to_array(new Fixers()))
             ->useRuleSet(new RuleSet([$name => $config]))

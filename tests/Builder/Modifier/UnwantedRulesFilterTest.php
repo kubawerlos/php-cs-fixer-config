@@ -16,7 +16,7 @@ namespace Tests\Builder\Modifier;
 use PhpCsFixer\Fixer\DeprecatedFixerInterface;
 use PhpCsFixer\Fixer\FixerInterface;
 use PhpCsFixer\FixerFactory;
-use PhpCsFixer\RuleSet;
+use PhpCsFixer\RuleSet\RuleSet;
 use PhpCsFixerConfig\Builder\Modifier\UnwantedRulesFilter;
 use PhpCsFixerCustomFixers\Fixers;
 use PHPUnit\Framework\TestCase;
@@ -55,7 +55,7 @@ final class UnwantedRulesFilterTest extends TestCase
 
     private function getFixer(string $name, $config): FixerInterface
     {
-        $fixers = FixerFactory::create()
+        $fixers = (new FixerFactory())
             ->registerBuiltInFixers()
             ->registerCustomFixers(\iterator_to_array(new Fixers()))
             ->useRuleSet(new RuleSet([$name => $config]))
