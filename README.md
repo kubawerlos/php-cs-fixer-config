@@ -2,7 +2,7 @@
 
 [![Latest stable version](https://img.shields.io/packagist/v/kubawerlos/php-cs-fixer-config.svg?label=current%20version)](https://packagist.org/packages/kubawerlos/php-cs-fixer-config)
 [![PHP version](https://img.shields.io/packagist/php-v/kubawerlos/php-cs-fixer-config.svg)](https://php.net)
-[![CI Status](https://github.com/kubawerlos/php-cs-fixer-config/workflows/CI/badge.svg?branch=master&event=push)](https://github.com/kubawerlos/php-cs-fixer-config/actions)
+[![CI Status](https://github.com/kubawerlos/php-cs-fixer-config/workflows/CI/badge.svg?branch=main&event=push)](https://github.com/kubawerlos/php-cs-fixer-config/actions)
 [![License](https://img.shields.io/github/license/kubawerlos/php-cs-fixer-config.svg)](LICENSE)
 
 Provides a configuration for PHP CS Fixer.
