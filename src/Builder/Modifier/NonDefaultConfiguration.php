@@ -28,12 +28,10 @@ final class NonDefaultConfiguration
     public function __invoke(array $rules): array
     {
         $rules['align_multiline_comment'] = ['comment_type' => 'all_multiline'];
-        $rules['array_syntax'] = ['syntax' => 'short'];
         $rules['blank_line_before_statement'] = ['statements' => ['return']];
         $rules['class_attributes_separation'] = ['elements' => ['method' => 'one', 'property' => 'one']];
         $rules['class_definition'] = ['multi_line_extends_each_single_line' => true, 'single_item_single_line' => true];
         $rules['concat_space'] = ['spacing' => 'one'];
-        $rules['function_to_constant'] = ['functions' => ['get_called_class', 'get_class', 'get_class_this', 'php_sapi_name', 'phpversion', 'pi']];
         $rules['increment_style'] = ['style' => 'post'];
         $rules['method_argument_space'] = ['on_multiline' => 'ensure_fully_multiline'];
         $rules['native_constant_invocation'] = ['scope' => 'namespaced',  'strict' => true];
@@ -42,7 +40,6 @@ final class NonDefaultConfiguration
         $rules['no_superfluous_phpdoc_tags'] = ['remove_inheritdoc' => true];
         $rules['php_unit_test_case_static_method_calls'] = ['call_type' => 'self'];
         $rules['phpdoc_line_span'] = ['property' => 'single'];
-        $rules['visibility_required'] = ['elements' => ['const', 'method', 'property']];
         $rules['yoda_style'] = ['equal' => false, 'identical' => false, 'less_and_greater' => false];
         $rules[NoSuperfluousConcatenationFixer::name()] = ['allow_preventing_trailing_spaces' => true];
 

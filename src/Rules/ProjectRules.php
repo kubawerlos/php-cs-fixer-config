@@ -28,9 +28,7 @@ final class ProjectRules implements RulesInterface
             ],
             'array_indentation' => true,
             'array_push' => true,
-            'array_syntax' => [
-                'syntax' => 'short',
-            ],
+            'array_syntax' => true,
             'backtick_to_shell_exec' => true,
             'binary_operator_spaces' => true,
             'blank_line_after_namespace' => true,
@@ -87,16 +85,7 @@ final class ProjectRules implements RulesInterface
             'full_opening_tag' => true,
             'fully_qualified_strict_types' => true,
             'function_declaration' => true,
-            'function_to_constant' => [
-                'functions' => [
-                    'get_called_class',
-                    'get_class',
-                    'get_class_this',
-                    'php_sapi_name',
-                    'phpversion',
-                    'pi',
-                ],
-            ],
+            'function_to_constant' => true,
             'function_typehint_space' => true,
             'general_phpdoc_annotation_remove' => false,
             'general_phpdoc_tag_rename' => true,
@@ -306,13 +295,7 @@ final class ProjectRules implements RulesInterface
             'trim_array_spaces' => true,
             'unary_operator_spaces' => true,
             'use_arrow_functions' => true,
-            'visibility_required' => [
-                'elements' => [
-                    'const',
-                    'method',
-                    'property',
-                ],
-            ],
+            'visibility_required' => true,
             'void_return' => true,
             'whitespace_after_comma_in_array' => true,
             'yoda_style' => [
