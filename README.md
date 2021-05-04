@@ -15,7 +15,7 @@ composer require --dev kubawerlos/php-cs-fixer-config
 
 
 ## Usage
-Create `.php_cs` file and use `PhpCsFixerConfig\Factory`:
+Create `.php-cs-fixer.php` file and use `PhpCsFixerConfig\Factory`:
 ```php
 <?php
 return PhpCsFixerConfig\Factory::createForLibrary('Library', 'Author', 2020 /* license initial year */)
