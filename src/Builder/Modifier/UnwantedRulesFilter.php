@@ -19,7 +19,6 @@ namespace PhpCsFixerConfig\Builder\Modifier;
 final class UnwantedRulesFilter
 {
     private const UNWANTED_RULES = [
-        'class_keyword_remove',
         'combine_consecutive_issets',
         'combine_consecutive_unsets',
         'general_phpdoc_annotation_remove',
