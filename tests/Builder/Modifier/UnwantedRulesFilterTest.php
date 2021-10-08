@@ -65,7 +65,7 @@ final class UnwantedRulesFilterTest extends TestCase
     }
 
     /**
-     * @return string[]
+     * @return array<string>
      */
     private function getRules(): array
     {

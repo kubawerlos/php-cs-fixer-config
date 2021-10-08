@@ -57,7 +57,7 @@ final class Builder
             . \sprintf('public function getRules(): array { return %s; }}', $array);
 
         foreach ($rules->getRules() as $rule => $config) {
-            if (\strpos($rule, 'PhpCsFixerCustomFixers') !== 0) {
+            if (!\str_starts_with($rule, 'PhpCsFixerCustomFixers')) {
                 continue;
             }
             $content = \str_replace(
