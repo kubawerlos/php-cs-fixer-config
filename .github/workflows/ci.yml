@@ -16,12 +16,15 @@ jobs:
         include:
           - os: ubuntu-latest
             php-version: '8.2'
+            composer_flags: '--ignore-platform-reqs'
           - os: ubuntu-latest
             php-version: '8.1'
           - os: ubuntu-latest
             php-version: '8.0'
             composer_flags: '--prefer-lowest'
     runs-on: ${{ matrix.os }}
+    env:
+      PHP_CS_FIXER_IGNORE_ENV: 1
     steps:
       - name: Checkout
         uses: actions/checkout@v2
