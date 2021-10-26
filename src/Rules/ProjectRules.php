@@ -43,8 +43,10 @@ final class ProjectRules implements RulesInterface
             'cast_spaces' => true,
             'class_attributes_separation' => [
                 'elements' => [
+                    'const' => 'none',
                     'method' => 'one',
-                    'property' => 'one',
+                    'property' => 'none',
+                    'trait_import' => 'none',
                 ],
             ],
             'class_definition' => [
@@ -161,7 +163,6 @@ final class ProjectRules implements RulesInterface
                     'square_brace_block',
                     'throw',
                     'use',
-                    'use_trait',
                 ],
             ],
             'no_homoglyph_names' => true,

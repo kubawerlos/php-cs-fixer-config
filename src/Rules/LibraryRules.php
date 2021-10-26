@@ -63,8 +63,10 @@ the LICENSE file that was distributed with this source code.
             'cast_spaces' => true,
             'class_attributes_separation' => [
                 'elements' => [
+                    'const' => 'none',
                     'method' => 'one',
-                    'property' => 'one',
+                    'property' => 'none',
+                    'trait_import' => 'none',
                 ],
             ],
             'class_definition' => [
@@ -184,7 +186,6 @@ the LICENSE file that was distributed with this source code.
                     'square_brace_block',
                     'throw',
                     'use',
-                    'use_trait',
                 ],
             ],
             'no_homoglyph_names' => true,
