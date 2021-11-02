@@ -30,7 +30,7 @@ final class NonDefaultConfiguration
         $rules['align_multiline_comment'] = ['comment_type' => 'all_multiline'];
         $rules['blank_line_before_statement'] = ['statements' => ['return']];
         $rules['class_attributes_separation'] = ['elements' => ['const' => 'none', 'method' => 'one', 'property' => 'none', 'trait_import' => 'none']];
-        $rules['class_definition'] = ['multi_line_extends_each_single_line' => true, 'single_item_single_line' => true];
+        $rules['class_definition'] = ['multi_line_extends_each_single_line' => true, 'single_item_single_line' => true, 'space_before_parenthesis' => true];
         $rules['concat_space'] = ['spacing' => 'one'];
         $rules['increment_style'] = ['style' => 'post'];
         $rules['method_argument_space'] = ['on_multiline' => 'ensure_fully_multiline'];

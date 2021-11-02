@@ -72,6 +72,7 @@ the LICENSE file that was distributed with this source code.
             'class_definition' => [
                 'multi_line_extends_each_single_line' => true,
                 'single_item_single_line' => true,
+                'space_before_parenthesis' => true,
             ],
             'clean_namespace' => true,
             'combine_consecutive_issets' => false,
@@ -362,6 +363,8 @@ the LICENSE file that was distributed with this source code.
             Fixer\NoUselessParenthesisFixer::name() => true,
             Fixer\NoUselessStrlenFixer::name() => true,
             Fixer\NumericLiteralSeparatorFixer::name() => true,
+            Fixer\PhpUnitAssertArgumentsOrderFixer::name() => true,
+            Fixer\PhpUnitDedicatedAssertFixer::name() => true,
             Fixer\PhpUnitNoUselessReturnFixer::name() => true,
             Fixer\PhpdocArrayStyleFixer::name() => true,
             Fixer\PhpdocNoIncorrectVarAnnotationFixer::name() => true,
