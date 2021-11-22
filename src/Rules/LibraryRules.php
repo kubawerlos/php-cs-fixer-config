@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of kubawerlos/php-cs-fixer-config.
@@ -8,8 +8,6 @@
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  */
-
-declare(strict_types=1);
 
 namespace PhpCsFixerConfig\Rules;
 
@@ -120,7 +118,7 @@ the LICENSE file that was distributed with this source code.
             'group_import' => false,
             'header_comment' => [
                 'header' => $this->header,
-                'location' => 'after_open',
+                'location' => 'after_declare_strict',
             ],
             'heredoc_indentation' => false,
             'heredoc_to_nowdoc' => true,
@@ -340,9 +338,11 @@ the LICENSE file that was distributed with this source code.
             ],
             Fixer\CommentSurroundedBySpacesFixer::name() => true,
             Fixer\CommentedOutFunctionFixer::name() => true,
+            Fixer\ConstructorEmptyBracesFixer::name() => true,
             Fixer\DataProviderNameFixer::name() => true,
             Fixer\DataProviderReturnTypeFixer::name() => true,
             Fixer\DataProviderStaticFixer::name() => true,
+            Fixer\DeclareAfterOpeningTagFixer::name() => true,
             Fixer\InternalClassCasingFixer::name() => true,
             Fixer\MultilineCommentOpeningClosingAloneFixer::name() => true,
             Fixer\MultilinePromotedPropertiesFixer::name() => true,
