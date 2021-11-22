@@ -118,7 +118,7 @@ the LICENSE file that was distributed with this source code.
             'group_import' => false,
             'header_comment' => [
                 'header' => $this->header,
-                'location' => 'after_open',
+                'location' => 'after_declare_strict',
             ],
             'heredoc_indentation' => false,
             'heredoc_to_nowdoc' => true,
