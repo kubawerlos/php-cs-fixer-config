@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 /*
  * This file is part of kubawerlos/php-cs-fixer-config.
@@ -8,8 +8,6 @@
  * For the full copyright and license information, please view
  * the LICENSE file that was distributed with this source code.
  */
-
-declare(strict_types=1);
 
 namespace PhpCsFixerConfig\Rules;
 
@@ -317,9 +315,11 @@ final class ProjectRules implements RulesInterface
             ],
             Fixer\CommentSurroundedBySpacesFixer::name() => true,
             Fixer\CommentedOutFunctionFixer::name() => true,
+            Fixer\ConstructorEmptyBracesFixer::name() => true,
             Fixer\DataProviderNameFixer::name() => true,
             Fixer\DataProviderReturnTypeFixer::name() => true,
             Fixer\DataProviderStaticFixer::name() => true,
+            Fixer\DeclareAfterOpeningTagFixer::name() => true,
             Fixer\InternalClassCasingFixer::name() => true,
             Fixer\MultilineCommentOpeningClosingAloneFixer::name() => true,
             Fixer\MultilinePromotedPropertiesFixer::name() => true,
