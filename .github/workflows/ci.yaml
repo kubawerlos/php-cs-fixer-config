@@ -8,6 +8,7 @@ jobs:
       matrix:
         os: [ macos-latest, ubuntu-latest, windows-latest ]
         php-version: [ '8.0' ]
+        composer_flags: [ '' ]
         include:
           - os: ubuntu-latest
             php-version: '8.0'
