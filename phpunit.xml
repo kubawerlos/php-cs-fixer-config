@@ -20,17 +20,15 @@
         </testsuite>
     </testsuites>
 
-    <logging>
-        <log type='coverage-text' target='php://stdout' showOnlySummary='true' />
-    </logging>
-
-    <filter>
-        <whitelist>
+    <coverage>
+        <include>
             <directory>./src/</directory>
-            <exclude>
-                <directory>./src/Builder/</directory>
-            </exclude>
-        </whitelist>
-    </filter>
-
+        </include>
+        <exclude>
+            <directory>./src/Builder/</directory>
+        </exclude>
+        <report>
+            <text outputFile='php://stdout' showOnlySummary='true' />
+        </report>
+    </coverage>
 </phpunit>
