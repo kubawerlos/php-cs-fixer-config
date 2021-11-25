@@ -46,7 +46,7 @@ final class SrcCodeTest extends TestCase
             self::assertSame(
                 $class === Factory::class,
                 \mb_strpos($reflectionClass->getDocComment(), '@internal') === false,
-                \sprintf('Class %s has "@internal" tag incorrectly.', $class)
+                \sprintf('Class %s has "@internal" tag incorrectly.', $class),
             );
         }
     }

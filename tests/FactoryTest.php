@@ -26,7 +26,7 @@ final class FactoryTest extends TestCase
     {
         self::assertInstanceOf(
             Config::class,
-            Factory::createForLibrary('library name', 'library author', 2000)
+            Factory::createForLibrary('library name', 'library author', 2000),
         );
     }
 
@@ -34,7 +34,7 @@ final class FactoryTest extends TestCase
     {
         self::assertInstanceOf(
             Config::class,
-            Factory::createForProject()
+            Factory::createForProject(),
         );
     }
 }
