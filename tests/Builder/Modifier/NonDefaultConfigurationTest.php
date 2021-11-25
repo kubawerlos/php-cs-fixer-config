@@ -42,7 +42,7 @@ final class NonDefaultConfigurationTest extends TestCase
                 }
 
                 return $x <=> $y;
-            }
+            },
         );
 
         self::assertSame($sortedRules, $rules);

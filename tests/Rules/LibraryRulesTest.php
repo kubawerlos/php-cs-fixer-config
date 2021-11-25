@@ -47,7 +47,7 @@ the LICENSE file that was distributed with this source code.
 
         self::assertSame(
             $rules->getRules(),
-            $libraryRules->getRules()
+            $libraryRules->getRules(),
         );
     }
 
@@ -63,7 +63,7 @@ the LICENSE file that was distributed with this source code.
 
         self::assertInstanceOf(
             FixerFactory::class,
-            $fixerFactory->useRuleSet($ruleSet)
+            $fixerFactory->useRuleSet($ruleSet),
         );
     }
 }

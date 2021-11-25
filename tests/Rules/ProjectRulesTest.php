@@ -35,7 +35,7 @@ final class ProjectRulesTest extends TestCase
 
         self::assertSame(
             $rules->getRules(),
-            $projectRules->getRules()
+            $projectRules->getRules(),
         );
     }
 
@@ -51,7 +51,7 @@ final class ProjectRulesTest extends TestCase
 
         self::assertInstanceOf(
             FixerFactory::class,
-            $fixerFactory->useRuleSet($ruleSet)
+            $fixerFactory->useRuleSet($ruleSet),
         );
     }
 }

@@ -300,7 +300,14 @@ final class ProjectRules implements RulesInterface
             'ternary_operator_spaces' => true,
             'ternary_to_elvis_operator' => true,
             'ternary_to_null_coalescing' => true,
-            'trailing_comma_in_multiline' => true,
+            'trailing_comma_in_multiline' => [
+                'after_heredoc' => true,
+                'elements' => [
+                    'arguments',
+                    'arrays',
+                    'parameters',
+                ],
+            ],
             'trim_array_spaces' => true,
             'types_spaces' => true,
             'unary_operator_spaces' => true,
