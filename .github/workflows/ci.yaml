@@ -1,0 +1,36 @@
+on:
+  pull_request: ~
+  push: ~
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ macos-latest, ubuntu-latest, windows-latest ]
+        php-version: [ '8.0' ]
+        composer_flags: [ '' ]
+        include:
+          - os: ubuntu-latest
+            php-version: '8.0'
+            composer_flags: '--prefer-lowest'
+          - os: ubuntu-latest
+            php-version: '8.1'
+          - os: ubuntu-latest
+            php-version: '8.2'
+            composer_flags: '--ignore-platform-reqs'
+    runs-on: ${{ matrix.os }}
+    env:
+      PHP_CS_FIXER_IGNORE_ENV: 1
+    steps:
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+      - id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+      - run: composer update --no-progress ${{ matrix.composer_flags }}
+      - run: composer verify
