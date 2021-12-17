@@ -154,12 +154,16 @@ final class ProjectRules implements RulesInterface
             'no_empty_statement' => true,
             'no_extra_blank_lines' => [
                 'tokens' => [
+                    'break',
+                    'case',
                     'continue',
                     'curly_brace_block',
+                    'default',
                     'extra',
                     'parenthesis_brace_block',
                     'return',
                     'square_brace_block',
+                    'switch',
                     'throw',
                     'use',
                 ],
