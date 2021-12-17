@@ -189,7 +189,6 @@ the LICENSE file that was distributed with this source code.
                     'switch',
                     'throw',
                     'use',
-                    'use_trait',
                 ],
             ],
             'no_homoglyph_names' => true,
