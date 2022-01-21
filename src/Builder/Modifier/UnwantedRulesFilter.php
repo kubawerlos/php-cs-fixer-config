@@ -17,11 +17,13 @@ namespace PhpCsFixerConfig\Builder\Modifier;
 final class UnwantedRulesFilter
 {
     private const UNWANTED_RULES = [
+        'blank_line_after_opening_tag',
         'combine_consecutive_issets',
         'combine_consecutive_unsets',
         'general_phpdoc_annotation_remove',
         'global_namespace_import',
         'group_import',
+        'linebreak_after_opening_tag',
         'no_blank_lines_before_namespace',
         'not_operator_with_space',
         'not_operator_with_successor_space',
