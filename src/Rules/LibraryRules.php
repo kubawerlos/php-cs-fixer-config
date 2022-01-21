@@ -50,7 +50,7 @@ the LICENSE file that was distributed with this source code.
             'backtick_to_shell_exec' => true,
             'binary_operator_spaces' => true,
             'blank_line_after_namespace' => true,
-            'blank_line_after_opening_tag' => true,
+            'blank_line_after_opening_tag' => false,
             'blank_line_before_statement' => [
                 'statements' => [
                     'return',
@@ -132,7 +132,7 @@ the LICENSE file that was distributed with this source code.
             'is_null' => true,
             'lambda_not_used_import' => true,
             'line_ending' => true,
-            'linebreak_after_opening_tag' => true,
+            'linebreak_after_opening_tag' => false,
             'list_syntax' => true,
             'logical_operators' => true,
             'lowercase_cast' => true,
@@ -367,9 +367,7 @@ the LICENSE file that was distributed with this source code.
             Fixer\NoNullableBooleanTypeFixer::name() => false,
             Fixer\NoPhpStormGeneratedCommentFixer::name() => true,
             Fixer\NoReferenceInFunctionDefinitionFixer::name() => true,
-            Fixer\NoSuperfluousConcatenationFixer::name() => [
-                'allow_preventing_trailing_spaces' => true,
-            ],
+            Fixer\NoSuperfluousConcatenationFixer::name() => true,
             Fixer\NoTrailingCommaInSinglelineFixer::name() => true,
             Fixer\NoUselessCommentFixer::name() => true,
             Fixer\NoUselessDirnameCallFixer::name() => true,

@@ -12,7 +12,6 @@
 namespace PhpCsFixerConfig\Builder\Modifier;
 
 use PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer;
-use PhpCsFixerCustomFixers\Fixer\NoSuperfluousConcatenationFixer;
 
 /**
  * @internal
@@ -41,7 +40,6 @@ final class NonDefaultConfiguration
         $rules['phpdoc_line_span'] = ['property' => 'single'];
         $rules['trailing_comma_in_multiline'] = ['after_heredoc' => true, 'elements' => ['arguments', 'arrays', 'parameters']];
         $rules['yoda_style'] = ['equal' => false, 'identical' => false, 'less_and_greater' => false];
-        $rules[NoSuperfluousConcatenationFixer::name()] = ['allow_preventing_trailing_spaces' => true];
 
         return $rules;
     }
