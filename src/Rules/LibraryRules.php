@@ -18,8 +18,7 @@ use PhpCsFixerCustomFixers\Fixer;
  */
 final class LibraryRules implements RulesInterface
 {
-    /** @var string */
-    private $header;
+    private string $header;
 
     public function __construct(string $name, string $author, int $year)
     {
@@ -114,6 +113,7 @@ the LICENSE file that was distributed with this source code.
             'function_typehint_space' => true,
             'general_phpdoc_annotation_remove' => false,
             'general_phpdoc_tag_rename' => true,
+            'get_class_to_class_keyword' => true,
             'global_namespace_import' => false,
             'group_import' => false,
             'header_comment' => [
@@ -370,6 +370,7 @@ the LICENSE file that was distributed with this source code.
             Fixer\NoSuperfluousConcatenationFixer::name() => [
                 'allow_preventing_trailing_spaces' => true,
             ],
+            Fixer\NoTrailingCommaInSinglelineFixer::name() => true,
             Fixer\NoUselessCommentFixer::name() => true,
             Fixer\NoUselessDirnameCallFixer::name() => true,
             Fixer\NoUselessDoctrineRepositoryCommentFixer::name() => true,

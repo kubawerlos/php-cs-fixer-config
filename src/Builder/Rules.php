@@ -20,7 +20,7 @@ use PhpCsFixer\FixerFactory;
 final class Rules
 {
     /** @var array<string, mixed> */
-    private $rules = [];
+    private array $rules = [];
 
     public function __construct()
     {

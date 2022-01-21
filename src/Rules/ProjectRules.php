@@ -94,6 +94,7 @@ final class ProjectRules implements RulesInterface
             'function_typehint_space' => true,
             'general_phpdoc_annotation_remove' => false,
             'general_phpdoc_tag_rename' => true,
+            'get_class_to_class_keyword' => true,
             'global_namespace_import' => false,
             'group_import' => false,
             'header_comment' => false,
@@ -347,6 +348,7 @@ final class ProjectRules implements RulesInterface
             Fixer\NoSuperfluousConcatenationFixer::name() => [
                 'allow_preventing_trailing_spaces' => true,
             ],
+            Fixer\NoTrailingCommaInSinglelineFixer::name() => true,
             Fixer\NoUselessCommentFixer::name() => true,
             Fixer\NoUselessDirnameCallFixer::name() => true,
             Fixer\NoUselessDoctrineRepositoryCommentFixer::name() => true,
