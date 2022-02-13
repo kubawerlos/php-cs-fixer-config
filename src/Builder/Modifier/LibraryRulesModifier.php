@@ -49,6 +49,7 @@ final class LibraryRulesModifier
             'property',
             'requires',
             'return',
+            'runInSeparateProcess',
             'var',
         ]];
 
