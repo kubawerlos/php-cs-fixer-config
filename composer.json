@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "friendsofphp/php-cs-fixer": "^3.5.0",
+        "friendsofphp/php-cs-fixer": "^3.6.0",
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.7.0"
     },
     "require-dev": {
