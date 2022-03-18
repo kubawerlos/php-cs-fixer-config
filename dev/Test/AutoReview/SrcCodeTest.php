@@ -9,7 +9,7 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace Tests\AutoReview;
+namespace Dev\Test\AutoReview;
 
 use PhpCsFixerConfig\Factory;
 use PHPUnit\Framework\TestCase;
@@ -27,7 +27,7 @@ final class SrcCodeTest extends TestCase
     {
         $finder = Finder::create()
             ->files()
-            ->in(__DIR__ . '/../../src')
+            ->in(__DIR__ . '/../../../src')
             ->notName('build.php');
 
         /** @var SplFileInfo $file */

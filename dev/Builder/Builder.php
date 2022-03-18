@@ -9,10 +9,10 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace PhpCsFixerConfig\Builder;
+namespace Dev\Builder;
 
-use PhpCsFixerConfig\Builder\Modifier\LibraryRulesModifier;
-use PhpCsFixerConfig\Builder\Modifier\ProjectRulesModifier;
+use Dev\Builder\Modifier\LibraryRulesModifier;
+use Dev\Builder\Modifier\ProjectRulesModifier;
 
 /**
  * @internal
@@ -47,7 +47,7 @@ final class Builder
         $array = \preg_replace('/\d+\s*=>/', '', $array);
         $array = \str_replace("'__HEADER_PLACEHOLDER__'", '$this->header', $array);
 
-        $path = __DIR__ . '/../Rules/' . $name . '.php';
+        $path = __DIR__ . '/../../src/Rules/' . $name . '.php';
 
         $content = \file_get_contents($path);
 

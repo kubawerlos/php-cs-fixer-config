@@ -9,15 +9,15 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace Tests;
+namespace Dev;
 
-use PhpCsFixerConfig\Builder\Modifier\NonDefaultConfiguration;
-use PhpCsFixerConfig\Builder\Modifier\UnwantedRulesFilter;
+use Dev\Builder\Modifier\NonDefaultConfiguration;
+use Dev\Builder\Modifier\UnwantedRulesFilter;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \PhpCsFixerConfig\Builder\Modifier\NonDefaultConfiguration
- * @covers \PhpCsFixerConfig\Builder\Modifier\UnwantedRulesFilter
+ * @covers \Dev\Builder\Modifier\NonDefaultConfiguration
+ * @covers \Dev\Builder\Modifier\UnwantedRulesFilter
  *
  * @internal
  */

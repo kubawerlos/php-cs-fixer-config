@@ -9,7 +9,7 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace PhpCsFixerConfig\Builder\Modifier;
+namespace Dev\Builder\Modifier;
 
 /**
  * @internal
@@ -25,11 +25,13 @@ final class UnwantedRulesFilter
         'group_import',
         'linebreak_after_opening_tag',
         'no_blank_lines_before_namespace',
+        'no_trailing_comma_in_singleline_function_call', // NoTrailingCommaInSinglelineFixer used
         'not_operator_with_space',
         'not_operator_with_successor_space',
         'php_unit_size_class',
         'phpdoc_summary',
         'phpdoc_to_property_type',
+        'single_line_comment_spacing', // CommentSurroundedBySpacesFixer used
     ];
 
     /**

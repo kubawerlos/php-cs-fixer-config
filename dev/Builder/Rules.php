@@ -9,10 +9,13 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace PhpCsFixerConfig\Builder;
+namespace Dev\Builder;
 
+use Dev\Builder\Modifier\NonDefaultConfiguration;
+use Dev\Builder\Modifier\UnwantedRulesFilter;
 use PhpCsFixer\Fixer\DeprecatedFixerInterface;
 use PhpCsFixer\FixerFactory;
+use PhpCsFixerCustomFixers\Fixers;
 
 /**
  * @internal
@@ -36,15 +39,15 @@ final class Rules
 
         \ksort($this->rules);
 
-        foreach (new \PhpCsFixerCustomFixers\Fixers() as $fixer) {
+        foreach (new Fixers() as $fixer) {
             if ($fixer instanceof DeprecatedFixerInterface) {
                 continue;
             }
             $this->rules[$fixer->getName()] = true;
         }
 
-        $this->apply(new Modifier\NonDefaultConfiguration());
-        $this->apply(new Modifier\UnwantedRulesFilter());
+        $this->apply(new NonDefaultConfiguration());
+        $this->apply(new UnwantedRulesFilter());
     }
 
     public function apply(callable $closure): void

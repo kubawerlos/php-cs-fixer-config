@@ -9,7 +9,7 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace PhpCsFixerConfig\Builder\Modifier;
+namespace Dev\Builder\Modifier;
 
 use PhpCsFixerCustomFixers\Fixer\NoNullableBooleanTypeFixer;
 use PhpCsFixerCustomFixers\Fixer\PhpdocOnlyAllowedAnnotationsFixer;

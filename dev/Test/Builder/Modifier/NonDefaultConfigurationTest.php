@@ -9,19 +9,19 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace Tests\Builder\Modifier;
+namespace Dev\Test\Builder\Modifier;
 
+use Dev\Builder\Modifier\NonDefaultConfiguration;
 use PhpCsFixer\Fixer\DeprecatedFixerInterface;
 use PhpCsFixer\Fixer\FixerInterface;
 use PhpCsFixer\FixerConfiguration\DeprecatedFixerOptionInterface;
 use PhpCsFixer\FixerFactory;
 use PhpCsFixer\RuleSet\RuleSet;
-use PhpCsFixerConfig\Builder\Modifier\NonDefaultConfiguration;
 use PhpCsFixerCustomFixers\Fixers;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \PhpCsFixerConfig\Builder\Modifier\NonDefaultConfiguration
+ * @covers \Dev\Builder\Modifier\NonDefaultConfiguration
  *
  * @internal
  */
