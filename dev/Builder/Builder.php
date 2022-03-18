@@ -9,10 +9,7 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace PhpCsFixerConfig\Builder;
-
-use PhpCsFixerConfig\Builder\Modifier\LibraryRulesModifier;
-use PhpCsFixerConfig\Builder\Modifier\ProjectRulesModifier;
+namespace Dev\Builder;
 
 /**
  * @internal
@@ -28,7 +25,7 @@ final class Builder
     private function buildLibraryRules(): void
     {
         $rules = new Rules();
-        $rules->apply(new LibraryRulesModifier());
+        $rules->apply(new Modifier\LibraryRulesModifier());
 
         $this->dumpClass('LibraryRules', $rules);
     }
@@ -36,7 +33,7 @@ final class Builder
     private function buildProjectRules(): void
     {
         $rules = new Rules();
-        $rules->apply(new ProjectRulesModifier());
+        $rules->apply(new Modifier\ProjectRulesModifier());
 
         $this->dumpClass('ProjectRules', $rules);
     }
@@ -47,7 +44,7 @@ final class Builder
         $array = \preg_replace('/\d+\s*=>/', '', $array);
         $array = \str_replace("'__HEADER_PLACEHOLDER__'", '$this->header', $array);
 
-        $path = __DIR__ . '/../Rules/' . $name . '.php';
+        $path = __DIR__ . '/../../src/Rules/' . $name . '.php';
 
         $content = \file_get_contents($path);
 

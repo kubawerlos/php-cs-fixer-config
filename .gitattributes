@@ -1,5 +1,4 @@
-/src/Builder/ export-ignore
-/tests/ export-ignore
+/dev/ export-ignore
 /.* export-ignore
 /phpunit.xml export-ignore
 

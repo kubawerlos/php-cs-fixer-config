@@ -9,12 +9,14 @@
  * the LICENSE file that was distributed with this source code.
  */
 
+require_once __DIR__ . '/vendor/autoload.php';
+
 return PhpCsFixerConfig\Factory::createForLibrary('kubawerlos/php-cs-fixer-config', 'Kuba Werłos', 2020)
     ->setUsingCache(false)
     ->setFinder(
         PhpCsFixer\Finder::create()
             ->files()
+            ->in(__DIR__ . '/dev')
             ->in(__DIR__ . '/src')
-            ->in(__DIR__ . '/tests')
             ->append([__FILE__]),
     );

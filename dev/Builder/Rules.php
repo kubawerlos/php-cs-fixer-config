@@ -9,10 +9,11 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace PhpCsFixerConfig\Builder;
+namespace Dev\Builder;
 
 use PhpCsFixer\Fixer\DeprecatedFixerInterface;
 use PhpCsFixer\FixerFactory;
+use PhpCsFixerCustomFixers\Fixers;
 
 /**
  * @internal
@@ -36,7 +37,7 @@ final class Rules
 
         \ksort($this->rules);
 
-        foreach (new \PhpCsFixerCustomFixers\Fixers() as $fixer) {
+        foreach (new Fixers() as $fixer) {
             if ($fixer instanceof DeprecatedFixerInterface) {
                 continue;
             }

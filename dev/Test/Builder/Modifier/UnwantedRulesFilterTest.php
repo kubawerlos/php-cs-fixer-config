@@ -9,18 +9,18 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace Tests\Builder\Modifier;
+namespace Dev\Test\Builder\Modifier;
 
+use Dev\Builder\Modifier\UnwantedRulesFilter;
 use PhpCsFixer\Fixer\DeprecatedFixerInterface;
 use PhpCsFixer\Fixer\FixerInterface;
 use PhpCsFixer\FixerFactory;
 use PhpCsFixer\RuleSet\RuleSet;
-use PhpCsFixerConfig\Builder\Modifier\UnwantedRulesFilter;
 use PhpCsFixerCustomFixers\Fixers;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \PhpCsFixerConfig\Builder\Modifier\UnwantedRulesFilter
+ * @covers \Dev\Builder\Modifier\UnwantedRulesFilter
  *
  * @internal
  */

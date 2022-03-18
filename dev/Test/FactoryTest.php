@@ -9,7 +9,7 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace Tests;
+namespace Dev;
 
 use PhpCsFixer\Config;
 use PhpCsFixerConfig\Factory;
