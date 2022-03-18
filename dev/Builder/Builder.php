@@ -11,6 +11,9 @@
 
 namespace Dev\Builder;
 
+use Dev\Builder\Modifier\LibraryRulesModifier;
+use Dev\Builder\Modifier\ProjectRulesModifier;
+
 /**
  * @internal
  */
@@ -25,7 +28,7 @@ final class Builder
     private function buildLibraryRules(): void
     {
         $rules = new Rules();
-        $rules->apply(new Modifier\LibraryRulesModifier());
+        $rules->apply(new LibraryRulesModifier());
 
         $this->dumpClass('LibraryRules', $rules);
     }
@@ -33,7 +36,7 @@ final class Builder
     private function buildProjectRules(): void
     {
         $rules = new Rules();
-        $rules->apply(new Modifier\ProjectRulesModifier());
+        $rules->apply(new ProjectRulesModifier());
 
         $this->dumpClass('ProjectRules', $rules);
     }

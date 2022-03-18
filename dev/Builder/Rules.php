@@ -11,6 +11,8 @@
 
 namespace Dev\Builder;
 
+use Dev\Builder\Modifier\NonDefaultConfiguration;
+use Dev\Builder\Modifier\UnwantedRulesFilter;
 use PhpCsFixer\Fixer\DeprecatedFixerInterface;
 use PhpCsFixer\FixerFactory;
 use PhpCsFixerCustomFixers\Fixers;
@@ -44,8 +46,8 @@ final class Rules
             $this->rules[$fixer->getName()] = true;
         }
 
-        $this->apply(new Modifier\NonDefaultConfiguration());
-        $this->apply(new Modifier\UnwantedRulesFilter());
+        $this->apply(new NonDefaultConfiguration());
+        $this->apply(new UnwantedRulesFilter());
     }
 
     public function apply(callable $closure): void
