@@ -64,6 +64,7 @@ final class ProjectRules implements RulesInterface
             ],
             'constant_case' => true,
             'control_structure_continuation_position' => true,
+            'date_time_create_from_format_call' => true,
             'date_time_immutable' => true,
             'declare_equal_normalize' => true,
             'declare_parentheses' => true,
