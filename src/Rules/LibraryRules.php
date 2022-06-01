@@ -410,6 +410,7 @@ the LICENSE file that was distributed with this source code.
             Fixer\PhpdocTypesTrimFixer::name() => true,
             Fixer\PhpdocVarAnnotationToAssertFixer::name() => true,
             Fixer\PromotedConstructorPropertyFixer::name() => true,
+            Fixer\ReadonlyPromotedPropertiesFixer::name() => true,
             Fixer\SingleSpaceAfterStatementFixer::name() => true,
             Fixer\SingleSpaceBeforeStatementFixer::name() => true,
             Fixer\StringableInterfaceFixer::name() => true,
