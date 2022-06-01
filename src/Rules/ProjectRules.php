@@ -372,6 +372,7 @@ final class ProjectRules implements RulesInterface
             Fixer\PhpdocTypesTrimFixer::name() => true,
             Fixer\PhpdocVarAnnotationToAssertFixer::name() => true,
             Fixer\PromotedConstructorPropertyFixer::name() => true,
+            Fixer\ReadonlyPromotedPropertiesFixer::name() => true,
             Fixer\SingleSpaceAfterStatementFixer::name() => true,
             Fixer\SingleSpaceBeforeStatementFixer::name() => true,
             Fixer\StringableInterfaceFixer::name() => true,
