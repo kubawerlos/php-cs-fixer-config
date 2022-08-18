@@ -17,13 +17,12 @@ namespace Dev\Builder\Modifier;
 final class UnwantedRulesFilter
 {
     private const UNWANTED_RULES = [
-        'blank_line_after_opening_tag',
+        'blank_line_between_import_groups',
         'combine_consecutive_issets',
         'combine_consecutive_unsets',
         'general_phpdoc_annotation_remove',
         'global_namespace_import',
         'group_import',
-        'linebreak_after_opening_tag',
         'no_blank_lines_before_namespace',
         'no_trailing_comma_in_singleline_function_call', // NoTrailingCommaInSinglelineFixer used
         'not_operator_with_space',

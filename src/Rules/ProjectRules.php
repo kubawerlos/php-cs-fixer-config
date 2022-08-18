@@ -31,12 +31,13 @@ final class ProjectRules implements RulesInterface
             'backtick_to_shell_exec' => true,
             'binary_operator_spaces' => true,
             'blank_line_after_namespace' => true,
-            'blank_line_after_opening_tag' => false,
+            'blank_line_after_opening_tag' => true,
             'blank_line_before_statement' => [
                 'statements' => [
                     'return',
                 ],
             ],
+            'blank_line_between_import_groups' => false,
             'braces' => true,
             'cast_spaces' => true,
             'class_attributes_separation' => [
@@ -63,7 +64,9 @@ final class ProjectRules implements RulesInterface
                 'spacing' => 'one',
             ],
             'constant_case' => true,
+            'control_structure_braces' => true,
             'control_structure_continuation_position' => true,
+            'curly_braces_position' => true,
             'date_time_create_from_format_call' => true,
             'date_time_immutable' => true,
             'declare_equal_normalize' => true,
@@ -112,7 +115,7 @@ final class ProjectRules implements RulesInterface
             'is_null' => true,
             'lambda_not_used_import' => true,
             'line_ending' => true,
-            'linebreak_after_opening_tag' => false,
+            'linebreak_after_opening_tag' => true,
             'list_syntax' => true,
             'logical_operators' => true,
             'lowercase_cast' => true,
@@ -157,6 +160,7 @@ final class ProjectRules implements RulesInterface
             'no_empty_statement' => true,
             'no_extra_blank_lines' => [
                 'tokens' => [
+                    'attribute',
                     'break',
                     'case',
                     'continue',
@@ -176,6 +180,7 @@ final class ProjectRules implements RulesInterface
             'no_leading_namespace_whitespace' => true,
             'no_mixed_echo_print' => true,
             'no_multiline_whitespace_around_double_arrow' => true,
+            'no_multiple_statements_per_line' => true,
             'no_null_property_initialization' => true,
             'no_php4_constructor' => true,
             'no_short_bool_cast' => true,
@@ -203,6 +208,7 @@ final class ProjectRules implements RulesInterface
             'no_unset_on_property' => true,
             'no_unused_imports' => true,
             'no_useless_else' => true,
+            'no_useless_nullsafe_operator' => true,
             'no_useless_return' => true,
             'no_useless_sprintf' => true,
             'no_whitespace_before_comma_in_array' => true,
@@ -299,6 +305,7 @@ final class ProjectRules implements RulesInterface
             'space_after_semicolon' => true,
             'standardize_increment' => true,
             'standardize_not_equals' => true,
+            'statement_indentation' => true,
             'static_lambda' => true,
             'strict_comparison' => true,
             'strict_param' => true,
@@ -324,7 +331,9 @@ final class ProjectRules implements RulesInterface
             'use_arrow_functions' => true,
             'visibility_required' => true,
             'void_return' => true,
-            'whitespace_after_comma_in_array' => true,
+            'whitespace_after_comma_in_array' => [
+                'ensure_single_space' => true,
+            ],
             'yoda_style' => [
                 'equal' => false,
                 'identical' => false,
