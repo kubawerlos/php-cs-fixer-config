@@ -32,13 +32,14 @@ final class NonDefaultConfiguration
         $rules['concat_space'] = ['spacing' => 'one'];
         $rules['increment_style'] = ['style' => 'post'];
         $rules['method_argument_space'] = ['on_multiline' => 'ensure_fully_multiline'];
-        $rules['native_constant_invocation'] = ['scope' => 'namespaced',  'strict' => true];
-        $rules['native_function_invocation'] = ['include' => ['@all'], 'scope' => 'namespaced',  'strict' => true];
+        $rules['native_constant_invocation'] = ['scope' => 'namespaced', 'strict' => true];
+        $rules['native_function_invocation'] = ['include' => ['@all'], 'scope' => 'namespaced', 'strict' => true];
         $rules['no_extra_blank_lines'] = ['tokens' => \array_diff((new \ReflectionClass(NoExtraBlankLinesFixer::class))->getStaticPropertyValue('availableTokens'), ['use_trait'])];
         $rules['no_superfluous_phpdoc_tags'] = ['remove_inheritdoc' => true];
         $rules['php_unit_test_case_static_method_calls'] = ['call_type' => 'self'];
         $rules['phpdoc_line_span'] = ['property' => 'single'];
         $rules['trailing_comma_in_multiline'] = ['after_heredoc' => true, 'elements' => ['arguments', 'arrays', 'parameters']];
+        $rules['whitespace_after_comma_in_array'] = ['ensure_single_space' => true];
         $rules['yoda_style'] = ['equal' => false, 'identical' => false, 'less_and_greater' => false];
 
         return $rules;
