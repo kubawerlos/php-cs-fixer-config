@@ -38,7 +38,7 @@ final class ProjectRules implements RulesInterface
                 ],
             ],
             'blank_line_between_import_groups' => false,
-            'braces' => true,
+            'braces' => false,
             'cast_spaces' => true,
             'class_attributes_separation' => [
                 'elements' => [
