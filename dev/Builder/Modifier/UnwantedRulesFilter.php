@@ -25,7 +25,6 @@ final class UnwantedRulesFilter
         'global_namespace_import',
         'group_import',
         'no_blank_lines_before_namespace',
-        'no_trailing_comma_in_singleline_function_call', // NoTrailingCommaInSinglelineFixer used
         'not_operator_with_space',
         'not_operator_with_successor_space',
         'php_unit_size_class',
