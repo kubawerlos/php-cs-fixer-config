@@ -16,7 +16,6 @@ return PhpCsFixerConfig\Factory::createForLibrary('kubawerlos/php-cs-fixer-confi
     ->setFinder(
         PhpCsFixer\Finder::create()
             ->files()
-            ->in(__DIR__ . '/dev')
-            ->in(__DIR__ . '/src')
-            ->append([__FILE__]),
+            ->ignoreDotFiles(false)
+            ->in(__DIR__),
     );
