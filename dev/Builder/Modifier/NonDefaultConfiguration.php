@@ -12,6 +12,7 @@
 namespace Dev\Builder\Modifier;
 
 use PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer;
+use PhpCsFixerCustomFixers\Fixer\DataProviderStaticFixer;
 
 /**
  * @internal
@@ -41,6 +42,7 @@ final class NonDefaultConfiguration
         $rules['trailing_comma_in_multiline'] = ['after_heredoc' => true, 'elements' => ['arguments', 'arrays', 'parameters']];
         $rules['whitespace_after_comma_in_array'] = ['ensure_single_space' => true];
         $rules['yoda_style'] = ['equal' => false, 'identical' => false, 'less_and_greater' => false];
+        $rules[DataProviderStaticFixer::name()] = ['force' => true];
 
         return $rules;
     }
