@@ -44,9 +44,9 @@ final class UnwantedRulesFilterTest extends TestCase
         self::assertNotInstanceOf(DeprecatedFixerInterface::class, $this->getFixer($name, true));
     }
 
-    public function provideRuleIsNotDeprecatedCases(): iterable
+    public static function provideRuleIsNotDeprecatedCases(): iterable
     {
-        foreach ($this->getRules() as $name) {
+        foreach (self::getRules() as $name) {
             yield $name => [$name];
         }
     }
@@ -65,7 +65,7 @@ final class UnwantedRulesFilterTest extends TestCase
     /**
      * @return array<string>
      */
-    private function getRules(): array
+    private static function getRules(): array
     {
         $reflection = new \ReflectionClass(UnwantedRulesFilter::class);
 
