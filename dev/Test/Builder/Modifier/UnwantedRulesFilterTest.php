@@ -46,7 +46,7 @@ final class UnwantedRulesFilterTest extends TestCase
 
     public static function provideRuleIsNotDeprecatedCases(): iterable
     {
-        foreach ($this->getRules() as $name) {
+        foreach (self::getRules() as $name) {
             yield $name => [$name];
         }
     }
@@ -65,7 +65,7 @@ final class UnwantedRulesFilterTest extends TestCase
     /**
      * @return array<string>
      */
-    private function getRules(): array
+    private static function getRules(): array
     {
         $reflection = new \ReflectionClass(UnwantedRulesFilter::class);
 
