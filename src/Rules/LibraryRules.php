@@ -57,7 +57,6 @@ the LICENSE file that was distributed with this source code.
                 ],
             ],
             'blank_line_between_import_groups' => false,
-            'braces' => false,
             'cast_spaces' => true,
             'class_attributes_separation' => [
                 'elements' => [
@@ -247,6 +246,9 @@ the LICENSE file that was distributed with this source code.
             'ordered_interfaces' => true,
             'ordered_traits' => true,
             'php_unit_construct' => true,
+            'php_unit_data_provider_static' => [
+                'force' => true,
+            ],
             'php_unit_dedicate_assert' => true,
             'php_unit_dedicate_assert_internal_type' => true,
             'php_unit_expectation' => true,
@@ -321,7 +323,7 @@ the LICENSE file that was distributed with this source code.
             'single_line_comment_style' => true,
             'single_line_throw' => true,
             'single_quote' => true,
-            'single_space_after_construct' => true,
+            'single_space_around_construct' => true,
             'single_trait_insert_per_statement' => true,
             'space_after_semicolon' => true,
             'standardize_increment' => true,
@@ -365,10 +367,8 @@ the LICENSE file that was distributed with this source code.
             Fixer\ConstructorEmptyBracesFixer::name() => true,
             Fixer\DataProviderNameFixer::name() => true,
             Fixer\DataProviderReturnTypeFixer::name() => true,
-            Fixer\DataProviderStaticFixer::name() => [
-                'force' => true,
-            ],
             Fixer\DeclareAfterOpeningTagFixer::name() => true,
+            Fixer\EmptyFunctionBodyFixer::name() => true,
             Fixer\IssetToArrayKeyExistsFixer::name() => true,
             Fixer\MultilineCommentOpeningClosingAloneFixer::name() => true,
             Fixer\MultilinePromotedPropertiesFixer::name() => true,
