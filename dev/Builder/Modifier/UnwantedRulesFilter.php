@@ -18,7 +18,6 @@ final class UnwantedRulesFilter
 {
     private const UNWANTED_RULES = [
         'blank_line_between_import_groups',
-        'braces',
         'combine_consecutive_issets',
         'combine_consecutive_unsets',
         'general_phpdoc_annotation_remove',
