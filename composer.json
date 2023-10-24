@@ -11,7 +11,7 @@
     "require": {
         "php": "^8.0",
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.16",
-        "php-cs-fixer/shim": "^3.22"
+        "php-cs-fixer/shim": "^3.34"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5.19"
