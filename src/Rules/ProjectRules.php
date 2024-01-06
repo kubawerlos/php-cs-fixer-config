@@ -32,7 +32,7 @@ final class ProjectRules implements RulesInterface
             'backtick_to_shell_exec' => true,
             'binary_operator_spaces' => true,
             'blank_line_after_namespace' => true,
-            'blank_line_after_opening_tag' => true,
+            'blank_line_after_opening_tag' => false,
             'blank_line_before_statement' => [
                 'statements' => [
                     'return',
@@ -276,7 +276,7 @@ final class ProjectRules implements RulesInterface
             'phpdoc_tag_type' => true,
             'phpdoc_to_comment' => true,
             'phpdoc_to_param_type' => true,
-            'phpdoc_to_property_type' => false,
+            'phpdoc_to_property_type' => true,
             'phpdoc_to_return_type' => true,
             'phpdoc_trim' => true,
             'phpdoc_trim_consecutive_blank_line_separation' => true,
