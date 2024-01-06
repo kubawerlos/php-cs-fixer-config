@@ -43,16 +43,29 @@ final class Builder
 
     private function dumpClass(string $name, Rules $rules): void
     {
-        $array = \var_export($rules->getRules(), true);
+        $arrayRules = $rules->getRules();
+
+        $arrayRules['trailing_comma_in_multiline'] = [
+            'after_heredoc' => true,
+            'elements' => '__TRAILING_COMMA_IN_MULTILINE__PLACEHOLDER__',
+        ];
+
+        $array = \var_export($arrayRules, true);
         $array = \preg_replace('/\d+\s*=>/', '', $array);
         $array = \str_replace("'__HEADER_PLACEHOLDER__'", '$this->header', $array);
+        $array = \str_replace("'__TRAILING_COMMA_IN_MULTILINE__PLACEHOLDER__'", 'self::trailingCommaInMultilineElements()', $array);
 
         $path = __DIR__ . '/../../src/Rules/' . $name . '.php';
 
         $content = \file_get_contents($path);
 
-        $content = \substr($content, 0, \strpos($content, 'public function getRules()'))
-            . \sprintf('public function getRules(): array { return %s; }}', $array);
+        $getRulesPosition = \strpos($content, 'public function getRules()');
+        $getRulesOpeningBracePosition = \strpos($content, '{', $getRulesPosition);
+        $getRulesClosingBracePosition = \strpos($content, '}', $getRulesOpeningBracePosition);
+
+        $content = \substr($content, 0, $getRulesOpeningBracePosition)
+            . \sprintf('{ return %s; }', $array)
+            . \substr($content, $getRulesClosingBracePosition + 1);
 
         foreach ($rules->getRules() as $rule => $config) {
             if (!\str_starts_with($rule, 'PhpCsFixerCustomFixers')) {
