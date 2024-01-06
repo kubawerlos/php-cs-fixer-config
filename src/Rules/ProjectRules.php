@@ -32,7 +32,7 @@ final class ProjectRules implements RulesInterface
             'backtick_to_shell_exec' => true,
             'binary_operator_spaces' => true,
             'blank_line_after_namespace' => true,
-            'blank_line_after_opening_tag' => true,
+            'blank_line_after_opening_tag' => false,
             'blank_line_before_statement' => [
                 'statements' => [
                     'return',
@@ -55,6 +55,7 @@ final class ProjectRules implements RulesInterface
                 'single_item_single_line' => true,
                 'space_before_parenthesis' => true,
             ],
+            'class_keyword' => true,
             'class_reference_name_casing' => true,
             'clean_namespace' => true,
             'combine_consecutive_issets' => false,
@@ -385,6 +386,7 @@ final class ProjectRules implements RulesInterface
             Fixer\PhpdocParamTypeFixer::name() => true,
             Fixer\PhpdocSelfAccessorFixer::name() => true,
             Fixer\PhpdocSingleLineVarFixer::name() => true,
+            Fixer\PhpdocTypeListFixer::name() => true,
             Fixer\PhpdocTypesCommaSpacesFixer::name() => true,
             Fixer\PhpdocTypesTrimFixer::name() => true,
             Fixer\PhpdocVarAnnotationToAssertFixer::name() => true,
