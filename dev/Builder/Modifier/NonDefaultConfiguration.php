@@ -39,10 +39,23 @@ final class NonDefaultConfiguration
         $rules['php_unit_data_provider_static'] = ['force' => true];
         $rules['php_unit_test_case_static_method_calls'] = ['call_type' => 'self'];
         $rules['phpdoc_line_span'] = ['property' => 'single'];
-        $rules['trailing_comma_in_multiline'] = ['after_heredoc' => true, 'elements' => ['arguments', 'arrays', 'parameters']];
+        $rules['trailing_comma_in_multiline'] = ['after_heredoc' => true, 'elements' => self::trailingCommaInMultilineElements()];
         $rules['whitespace_after_comma_in_array'] = ['ensure_single_space' => true];
         $rules['yoda_style'] = ['equal' => false, 'identical' => false, 'less_and_greater' => false];
 
         return $rules;
+    }
+
+    /**
+     * @return list<string>
+     */
+    private static function trailingCommaInMultilineElements(): array
+    {
+        $elements = ['arguments', 'arrays'];
+        if (\PHP_VERSION_ID >= 80000) {
+            $elements[] = 'parameters';
+        }
+
+        return $elements;
     }
 }

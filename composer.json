@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "php": "^8.0",
+        "php": "^7.4 || ^8.0",
         "kubawerlos/php-cs-fixer-custom-fixers": "^3.18",
         "php-cs-fixer/shim": "^3.42"
     },

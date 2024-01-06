@@ -351,11 +351,7 @@ the LICENSE file that was distributed with this source code.
             'ternary_to_null_coalescing' => true,
             'trailing_comma_in_multiline' => [
                 'after_heredoc' => true,
-                'elements' => [
-                    'arguments',
-                    'arrays',
-                    'parameters',
-                ],
+                'elements' => self::trailingCommaInMultilineElements(),
             ],
             'trim_array_spaces' => true,
             'type_declaration_spaces' => true,
@@ -434,5 +430,18 @@ the LICENSE file that was distributed with this source code.
             Fixer\SingleSpaceBeforeStatementFixer::name() => true,
             Fixer\StringableInterfaceFixer::name() => true,
         ];
+    }
+
+    /**
+     * @return list<string>
+     */
+    private static function trailingCommaInMultilineElements(): array
+    {
+        $elements = ['arguments', 'arrays'];
+        if (\PHP_VERSION_ID >= 80000) {
+            $elements[] = 'parameters';
+        }
+
+        return $elements;
     }
 }
