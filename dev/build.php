@@ -15,4 +15,4 @@ require __DIR__ . '/autoload.php';
 $builder = new Dev\Builder\Builder();
 $builder->build();
 
-exec('php ' . __DIR__ . '/../vendor/bin/php-cs-fixer fix');
+exec('php ' . __DIR__ . '/../vendor/bin/php-cs-fixer fix --quiet');
