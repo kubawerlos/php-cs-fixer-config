@@ -17,7 +17,7 @@ jobs:
           - os: ubuntu-latest
             php-version: '7.4'
           - os: ubuntu-latest
-            php-version: '8.-'
+            php-version: '8.0'
           - os: ubuntu-latest
             php-version: '8.1'
           - os: ubuntu-latest
