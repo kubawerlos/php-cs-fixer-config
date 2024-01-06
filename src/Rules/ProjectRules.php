@@ -116,7 +116,7 @@ final class ProjectRules implements RulesInterface
             'is_null' => true,
             'lambda_not_used_import' => true,
             'line_ending' => true,
-            'linebreak_after_opening_tag' => true,
+            'linebreak_after_opening_tag' => false,
             'list_syntax' => true,
             'logical_operators' => true,
             'long_to_shorthand_operator' => true,

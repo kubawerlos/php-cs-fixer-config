@@ -24,6 +24,7 @@ final class UnwantedRulesFilter
         'general_phpdoc_annotation_remove',
         'global_namespace_import',
         'group_import',
+        'linebreak_after_opening_tag',
         'not_operator_with_space',
         'not_operator_with_successor_space',
         'php_unit_size_class',
