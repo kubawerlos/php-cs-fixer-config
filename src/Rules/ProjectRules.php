@@ -32,7 +32,7 @@ final class ProjectRules implements RulesInterface
             'backtick_to_shell_exec' => true,
             'binary_operator_spaces' => true,
             'blank_line_after_namespace' => true,
-            'blank_line_after_opening_tag' => false,
+            'blank_line_after_opening_tag' => true,
             'blank_line_before_statement' => [
                 'statements' => [
                     'return',
