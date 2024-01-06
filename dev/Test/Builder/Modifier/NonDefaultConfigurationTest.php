@@ -51,15 +51,15 @@ final class NonDefaultConfigurationTest extends TestCase
     /**
      * @dataProvider provideRuleCases
      */
-    public function testRuleIsNotDeprecated(string $name, $config): void
+    public function testRuleIsNotDeprecated(string $name): void
     {
-        self::assertNotInstanceOf(DeprecatedFixerInterface::class, $this->getFixer($name, true));
+        self::assertNotInstanceOf(DeprecatedFixerInterface::class, $this->getFixer($name));
     }
 
     /**
      * @dataProvider provideRuleCases
      */
-    public function testConfigKeysAreSorted(string $name, $config): void
+    public function testConfigKeysAreSorted(string $name, array $config): void
     {
         $sortedConfig = $config;
         \ksort($sortedConfig);
@@ -70,10 +70,10 @@ final class NonDefaultConfigurationTest extends TestCase
     /**
      * @dataProvider provideRuleCases
      */
-    public function testRuleIsNotUsingDefaultConfig(string $name, $config): void
+    public function testRuleIsNotUsingDefaultConfig(string $name, array $config): void
     {
         $defaultConfig = [];
-        foreach ($this->getFixer($name, true)->getConfigurationDefinition()->getOptions() as $option) {
+        foreach ($this->getFixer($name)->getConfigurationDefinition()->getOptions() as $option) {
             if ($option instanceof DeprecatedFixerOptionInterface) {
                 continue;
             }
@@ -88,17 +88,17 @@ final class NonDefaultConfigurationTest extends TestCase
 
     public static function provideRuleCases(): iterable
     {
-        foreach ((new NonDefaultConfiguration())->__invoke([]) as $name => $config) {
+        foreach ((new NonDefaultConfiguration())([]) as $name => $config) {
             yield $name => [$name, $config];
         }
     }
 
-    private function getFixer(string $name, $config): FixerInterface
+    private function getFixer(string $name): FixerInterface
     {
         $fixers = (new FixerFactory())
             ->registerBuiltInFixers()
             ->registerCustomFixers(\iterator_to_array(new Fixers()))
-            ->useRuleSet(new RuleSet([$name => $config]))
+            ->useRuleSet(new RuleSet([$name => true]))
             ->getFixers();
 
         return $fixers[0];

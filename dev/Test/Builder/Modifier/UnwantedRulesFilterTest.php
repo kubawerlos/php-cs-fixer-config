@@ -28,7 +28,7 @@ final class UnwantedRulesFilterTest extends TestCase
 {
     public function testRulesAreSorted(): void
     {
-        $rules = $this->getRules();
+        $rules = self::getRules();
 
         $sortedRules = $rules;
         \sort($sortedRules);
@@ -41,7 +41,7 @@ final class UnwantedRulesFilterTest extends TestCase
      */
     public function testRuleIsNotDeprecated(string $name): void
     {
-        self::assertNotInstanceOf(DeprecatedFixerInterface::class, $this->getFixer($name, true));
+        self::assertNotInstanceOf(DeprecatedFixerInterface::class, $this->getFixer($name));
     }
 
     public static function provideRuleIsNotDeprecatedCases(): iterable
@@ -51,19 +51,19 @@ final class UnwantedRulesFilterTest extends TestCase
         }
     }
 
-    private function getFixer(string $name, $config): FixerInterface
+    private function getFixer(string $name): FixerInterface
     {
         $fixers = (new FixerFactory())
             ->registerBuiltInFixers()
             ->registerCustomFixers(\iterator_to_array(new Fixers()))
-            ->useRuleSet(new RuleSet([$name => $config]))
+            ->useRuleSet(new RuleSet([$name => true]))
             ->getFixers();
 
         return $fixers[0];
     }
 
     /**
-     * @return array<string>
+     * @return list<string>
      */
     private static function getRules(): array
     {
