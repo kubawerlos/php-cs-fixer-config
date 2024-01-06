@@ -28,12 +28,11 @@
     },
     "scripts": {
         "fix": [
-            "@php ./dev/build.php",
-            "php-cs-fixer fix --quiet"
+            "@php ./dev/build.php"
         ],
         "verify": [
             "@putenv PHP_CS_FIXER_FUTURE_MODE=1",
-            "php-cs-fixer fix --ansi --diff --dry-run --verbose",
+            "php-cs-fixer fix --ansi --show-progress=dots --diff --dry-run --verbose",
             "phpunit"
         ]
     }
