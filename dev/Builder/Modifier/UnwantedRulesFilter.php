@@ -17,6 +17,7 @@ namespace Dev\Builder\Modifier;
 final class UnwantedRulesFilter
 {
     private const UNWANTED_RULES = [
+        'blank_line_after_opening_tag',
         'blank_line_between_import_groups',
         'combine_consecutive_issets',
         'combine_consecutive_unsets',
@@ -27,7 +28,6 @@ final class UnwantedRulesFilter
         'not_operator_with_successor_space',
         'php_unit_size_class',
         'phpdoc_summary',
-        'phpdoc_to_property_type',
         'single_line_comment_spacing', // CommentSurroundedBySpacesFixer used
     ];
 
