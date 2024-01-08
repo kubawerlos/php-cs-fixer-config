@@ -4,11 +4,13 @@ on:
   push: ~
 jobs:
   verify:
+    name: PHP ${{ matrix.php-version }} ${{ matrix.description }}
     strategy:
       fail-fast: false
       matrix:
         include:
           - os: ubuntu-latest
+            description: 'with lowest dependencies'
             php-version: '7.4'
             composer_flags: '--prefer-lowest'
           - os: ubuntu-latest
@@ -20,12 +22,15 @@ jobs:
           - os: ubuntu-latest
             php-version: '8.2'
           - os: macos-latest
+            description: 'on macOS'
             php-version: '8.3'
           - os: ubuntu-latest
             php-version: '8.3'
           - os: windows-latest
+            description: 'on Windows'
             php-version: '8.3'
           - os: ubuntu-latest
+            description: 'with shim package'
             php-version: '8.3'
             use-shim-package: true
           - os: ubuntu-latest
