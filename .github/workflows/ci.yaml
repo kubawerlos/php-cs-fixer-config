@@ -4,14 +4,13 @@ on:
   push: ~
 jobs:
   verify:
+    name: PHP ${{ matrix.php-version }} ${{ matrix.description }}
     strategy:
       fail-fast: false
       matrix:
-        os: [ macos-latest, ubuntu-latest, windows-latest ]
-        php-version: [ '8.3' ]
-        composer_flags: [ '' ]
         include:
           - os: ubuntu-latest
+            description: 'with the lowest dependencies'
             php-version: '7.4'
             composer_flags: '--prefer-lowest'
           - os: ubuntu-latest
@@ -23,21 +22,35 @@ jobs:
           - os: ubuntu-latest
             php-version: '8.2'
           - os: ubuntu-latest
+            php-version: '8.3'
+          - os: macos-latest
+            description: 'on macOS'
+            php-version: '8.3'
+          - os: windows-latest
+            description: 'on Windows'
+            php-version: '8.3'
+          - os: ubuntu-latest
+            description: 'with shim package'
+            php-version: '8.3'
+            use-shim-package: true
+          - os: ubuntu-latest
             php-version: '8.4'
             composer_flags: '--ignore-platform-reqs'
     runs-on: ${{ matrix.os }}
     env:
       PHP_CS_FIXER_IGNORE_ENV: 1
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
-      - id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - uses: actions/cache@v2
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+          extensions: none, curl, dom, json, mbstring, opcache, openssl, simplexml, tokenizer, xml, xmlwriter
+          coverage: none
+
+      - if: ${{ matrix.use-shim-package }}
+        run: sed -i 's#friendsofphp/php-cs-fixer#php-cs-fixer/shim#g' composer.json
+
       - run: composer update --no-progress ${{ matrix.composer_flags }}
+
       - run: composer verify
