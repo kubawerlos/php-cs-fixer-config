@@ -30,10 +30,6 @@ jobs:
             description: 'on Windows'
             php-version: '8.3'
           - os: ubuntu-latest
-            description: 'with shim package'
-            php-version: '8.3'
-            use-shim-package: true
-          - os: ubuntu-latest
             php-version: '8.4'
             composer_flags: '--ignore-platform-reqs'
     runs-on: ${{ matrix.os }}
@@ -47,9 +43,6 @@ jobs:
           php-version: ${{ matrix.php-version }}
           extensions: none, curl, dom, json, mbstring, opcache, openssl, simplexml, tokenizer, xml, xmlwriter
           coverage: none
-
-      - if: ${{ matrix.use-shim-package }}
-        run: sed -i 's#friendsofphp/php-cs-fixer#php-cs-fixer/shim#g' composer.json
 
       - run: composer update --no-progress ${{ matrix.composer_flags }}
 
