@@ -11,11 +11,9 @@
 
 $phar = __DIR__ . '/../vendor/php-cs-fixer/shim/php-cs-fixer.phar';
 
-if (file_exists($phar)) {
-    $pharLoaded = Phar::loadPhar($phar, 'php-cs-fixer.phar');
-    if (!$pharLoaded) {
-        exit(sprintf('Phar "%s" not loaded!' . PHP_EOL, $phar));
-    }
-
-    require_once 'phar://php-cs-fixer.phar/vendor/autoload.php';
+$pharLoaded = Phar::loadPhar($phar, 'php-cs-fixer.phar');
+if (!$pharLoaded) {
+    exit(sprintf('Phar "%s" not loaded!' . PHP_EOL, $phar));
 }
+
+require_once 'phar://php-cs-fixer.phar/vendor/autoload.php';
