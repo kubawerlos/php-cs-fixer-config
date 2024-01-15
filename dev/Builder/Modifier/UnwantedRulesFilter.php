@@ -24,6 +24,7 @@ final class UnwantedRulesFilter
         'general_phpdoc_annotation_remove',
         'global_namespace_import',
         'group_import',
+        'heredoc_closing_marker',
         'linebreak_after_opening_tag',
         'multiline_string_to_heredoc',
         'not_operator_with_space',
