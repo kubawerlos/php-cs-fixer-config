@@ -11,6 +11,7 @@
 
 namespace Dev\Builder\Modifier;
 
+use PhpCsFixer\Fixer\Basic\NumericLiteralSeparatorFixer;
 use PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer;
 
 /**
@@ -36,6 +37,7 @@ final class NonDefaultConfiguration
         $rules['native_function_invocation'] = ['include' => ['@all'], 'scope' => 'namespaced', 'strict' => true];
         $rules['no_extra_blank_lines'] = ['tokens' => \array_diff((new \ReflectionClass(NoExtraBlankLinesFixer::class))->getStaticPropertyValue('availableTokens'), ['use_trait'])];
         $rules['no_superfluous_phpdoc_tags'] = ['remove_inheritdoc' => true];
+        $rules['numeric_literal_separator'] = ['strategy' => NumericLiteralSeparatorFixer::STRATEGY_NO_SEPARATOR];
         $rules['php_unit_data_provider_static'] = ['force' => true];
         $rules['php_unit_test_case_static_method_calls'] = ['call_type' => 'self'];
         $rules['phpdoc_line_span'] = ['property' => 'single'];
