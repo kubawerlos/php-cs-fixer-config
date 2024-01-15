@@ -25,6 +25,7 @@ final class UnwantedRulesFilter
         'global_namespace_import',
         'group_import',
         'linebreak_after_opening_tag',
+        'multiline_string_to_heredoc',
         'not_operator_with_space',
         'not_operator_with_successor_space',
         'php_unit_size_class',

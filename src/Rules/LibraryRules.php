@@ -126,6 +126,7 @@ the LICENSE file that was distributed with this source code.
                 'header' => $this->header,
                 'location' => 'after_declare_strict',
             ],
+            'heredoc_closing_marker' => true,
             'heredoc_indentation' => false,
             'heredoc_to_nowdoc' => true,
             'implode_call' => true,
@@ -155,6 +156,7 @@ the LICENSE file that was distributed with this source code.
             'modernize_strpos' => true,
             'modernize_types_casting' => true,
             'multiline_comment_opening_closing' => true,
+            'multiline_string_to_heredoc' => false,
             'multiline_whitespace_before_semicolons' => true,
             'native_constant_invocation' => [
                 'scope' => 'namespaced',
@@ -240,6 +242,9 @@ the LICENSE file that was distributed with this source code.
             'not_operator_with_successor_space' => false,
             'nullable_type_declaration' => true,
             'nullable_type_declaration_for_default_null_value' => true,
+            'numeric_literal_separator' => [
+                'strategy' => 'no_separator',
+            ],
             'object_operator_without_whitespace' => true,
             'octal_notation' => true,
             'operator_linebreak' => true,
@@ -393,7 +398,6 @@ the LICENSE file that was distributed with this source code.
             Fixer\NoUselessDoctrineRepositoryCommentFixer::name() => true,
             Fixer\NoUselessParenthesisFixer::name() => true,
             Fixer\NoUselessStrlenFixer::name() => true,
-            Fixer\NumericLiteralSeparatorFixer::name() => true,
             Fixer\PhpUnitAssertArgumentsOrderFixer::name() => true,
             Fixer\PhpUnitDedicatedAssertFixer::name() => true,
             Fixer\PhpUnitNoUselessReturnFixer::name() => true,
