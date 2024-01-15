@@ -104,7 +104,7 @@ final class ProjectRules implements RulesInterface
             'global_namespace_import' => false,
             'group_import' => false,
             'header_comment' => false,
-            'heredoc_closing_marker' => true,
+            'heredoc_closing_marker' => false,
             'heredoc_indentation' => true,
             'heredoc_to_nowdoc' => true,
             'implode_call' => true,

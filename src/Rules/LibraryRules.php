@@ -126,7 +126,7 @@ the LICENSE file that was distributed with this source code.
                 'header' => $this->header,
                 'location' => 'after_declare_strict',
             ],
-            'heredoc_closing_marker' => true,
+            'heredoc_closing_marker' => false,
             'heredoc_indentation' => false,
             'heredoc_to_nowdoc' => true,
             'implode_call' => true,
