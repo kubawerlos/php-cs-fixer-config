@@ -105,7 +105,6 @@ the LICENSE file that was distributed with this source code.
             'encoding' => true,
             'ereg_to_preg' => true,
             'error_suppression' => true,
-            'escape_implicit_backslashes' => true,
             'explicit_indirect_variable' => true,
             'explicit_string_variable' => true,
             'final_class' => true,
@@ -285,6 +284,7 @@ the LICENSE file that was distributed with this source code.
             'phpdoc_line_span' => [
                 'property' => 'single',
             ],
+            'phpdoc_list_type' => true,
             'phpdoc_no_access' => true,
             'phpdoc_no_alias_tag' => true,
             'phpdoc_no_empty_return' => true,
@@ -346,6 +346,7 @@ the LICENSE file that was distributed with this source code.
             'static_lambda' => true,
             'strict_comparison' => true,
             'strict_param' => true,
+            'string_implicit_backslashes' => true,
             'string_length_to_empty' => true,
             'string_line_ending' => true,
             'switch_case_semicolon_to_colon' => true,
@@ -424,7 +425,6 @@ the LICENSE file that was distributed with this source code.
             Fixer\PhpdocParamTypeFixer::name() => true,
             Fixer\PhpdocSelfAccessorFixer::name() => true,
             Fixer\PhpdocSingleLineVarFixer::name() => true,
-            Fixer\PhpdocTypeListFixer::name() => true,
             Fixer\PhpdocTypesCommaSpacesFixer::name() => true,
             Fixer\PhpdocTypesTrimFixer::name() => true,
             Fixer\PhpdocVarAnnotationToAssertFixer::name() => true,
@@ -443,6 +443,7 @@ the LICENSE file that was distributed with this source code.
     {
         $elements = ['arguments', 'arrays'];
         if (\PHP_VERSION_ID >= 80000) {
+            $elements[] = 'match';
             $elements[] = 'parameters';
         }
 
