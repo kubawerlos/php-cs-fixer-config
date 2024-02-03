@@ -54,6 +54,7 @@ final class NonDefaultConfiguration
     {
         $elements = ['arguments', 'arrays'];
         if (\PHP_VERSION_ID >= 80000) {
+            $elements[] = 'match';
             $elements[] = 'parameters';
         }
 

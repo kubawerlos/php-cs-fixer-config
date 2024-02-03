@@ -73,7 +73,7 @@ final class Builder
             }
             $content = \str_replace(
                 \sprintf("'%s'", $rule),
-                \sprintf('Fixer\\%sFixer::name()', \ucfirst(\str_replace([' ', 'PhpCsFixerCustomFixers/'], '', \ucwords(\str_replace('_', ' ', $rule))))),
+                \sprintf('Fixer\%sFixer::name()', \ucfirst(\str_replace([' ', 'PhpCsFixerCustomFixers/'], '', \ucwords(\str_replace('_', ' ', $rule))))),
                 $content,
             );
         }
