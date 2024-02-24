@@ -51,7 +51,7 @@ final class Builder
         ];
 
         $array = \var_export($arrayRules, true);
-        $array = \preg_replace('/\d+\s*=>/', '', $array);
+        $array = \preg_replace('/\\d+\\s*=>/', '', $array);
         $array = \str_replace("'__HEADER_PLACEHOLDER__'", '$this->header', $array);
         $array = \str_replace("'__TRAILING_COMMA_IN_MULTILINE__PLACEHOLDER__'", 'self::trailingCommaInMultilineElements()', $array);
 
@@ -73,7 +73,7 @@ final class Builder
             }
             $content = \str_replace(
                 \sprintf("'%s'", $rule),
-                \sprintf('Fixer\%sFixer::name()', \ucfirst(\str_replace([' ', 'PhpCsFixerCustomFixers/'], '', \ucwords(\str_replace('_', ' ', $rule))))),
+                \sprintf('Fixer\\%sFixer::name()', \ucfirst(\str_replace([' ', 'PhpCsFixerCustomFixers/'], '', \ucwords(\str_replace('_', ' ', $rule))))),
                 $content,
             );
         }
