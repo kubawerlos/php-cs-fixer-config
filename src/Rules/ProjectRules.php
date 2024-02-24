@@ -257,6 +257,7 @@ final class ProjectRules implements RulesInterface
             'phpdoc_add_missing_param_annotation' => true,
             'phpdoc_align' => true,
             'phpdoc_annotation_without_dot' => true,
+            'phpdoc_array_type' => true,
             'phpdoc_indent' => true,
             'phpdoc_inline_tag_normalizer' => true,
             'phpdoc_line_span' => [
@@ -324,7 +325,9 @@ final class ProjectRules implements RulesInterface
             'static_lambda' => true,
             'strict_comparison' => true,
             'strict_param' => true,
-            'string_implicit_backslashes' => true,
+            'string_implicit_backslashes' => [
+                'single_quoted' => 'escape',
+            ],
             'string_length_to_empty' => true,
             'string_line_ending' => true,
             'switch_case_semicolon_to_colon' => true,
@@ -380,7 +383,6 @@ final class ProjectRules implements RulesInterface
             Fixer\PhpUnitAssertArgumentsOrderFixer::name() => true,
             Fixer\PhpUnitDedicatedAssertFixer::name() => true,
             Fixer\PhpUnitNoUselessReturnFixer::name() => true,
-            Fixer\PhpdocArrayStyleFixer::name() => true,
             Fixer\PhpdocNoIncorrectVarAnnotationFixer::name() => true,
             Fixer\PhpdocNoSuperfluousParamFixer::name() => true,
             Fixer\PhpdocOnlyAllowedAnnotationsFixer::name() => false,
