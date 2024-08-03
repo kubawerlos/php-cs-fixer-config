@@ -13,6 +13,7 @@ namespace PhpCsFixerConfig;
 
 use PhpCsFixer\Config;
 use PhpCsFixer\ConfigInterface;
+use PhpCsFixerCustomFixers\Fixers;
 
 /**
  * Class to create PHP CS Fixer config.
@@ -32,7 +33,7 @@ final class Factory
     private static function create(Rules\RulesInterface $rules): ConfigInterface
     {
         return (new Config())
-            ->registerCustomFixers(new \PhpCsFixerCustomFixers\Fixers())
+            ->registerCustomFixers(new Fixers())
             ->setRiskyAllowed(true)
             ->setRules($rules->getRules());
     }
