@@ -5,8 +5,7 @@
          bootstrap='dev/autoload.php'
          cacheResult='false'
          colors='true'
-         forceCoversAnnotation='true'
-         verbose='true'
+         requireCoverageMetadata='true'
 >
 
     <php>
@@ -21,10 +20,13 @@
         </testsuite>
     </testsuites>
 
-    <coverage>
+    <source>
         <include>
             <directory>./src/</directory>
         </include>
+    </source>
+
+    <coverage>
         <report>
             <text outputFile='php://stdout' showOnlySummary='true' />
         </report>
