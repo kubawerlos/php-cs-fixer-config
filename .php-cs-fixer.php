@@ -11,10 +11,13 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-return PhpCsFixerConfig\Factory::createForLibrary('kubawerlos/php-cs-fixer-config', 'Kuba Werłos', 2020)
+use PhpCsFixer\Finder;
+use PhpCsFixerConfig\Factory;
+
+return Factory::createForLibrary('kubawerlos/php-cs-fixer-config', 'Kuba Werłos', 2020)
     ->setUsingCache(false)
     ->setFinder(
-        PhpCsFixer\Finder::create()
+        Finder::create()
             ->files()
             ->ignoreDotFiles(false)
             ->in(__DIR__),
