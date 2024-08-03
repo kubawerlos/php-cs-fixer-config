@@ -17,13 +17,13 @@ use PhpCsFixer\FixerFactory;
 use PhpCsFixer\RuleSet\RuleSet;
 use PhpCsFixerConfig\Rules\LibraryRules;
 use PhpCsFixerCustomFixers\Fixers;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \PhpCsFixerConfig\Rules\LibraryRules
- *
  * @internal
  */
+#[CoversClass(LibraryRules::class)]
 final class LibraryRulesTest extends TestCase
 {
     public function testRulesAreUpToDate(): void

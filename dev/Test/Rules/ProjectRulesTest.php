@@ -17,13 +17,13 @@ use PhpCsFixer\FixerFactory;
 use PhpCsFixer\RuleSet\RuleSet;
 use PhpCsFixerConfig\Rules\ProjectRules;
 use PhpCsFixerCustomFixers\Fixers;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \PhpCsFixerConfig\Rules\ProjectRules
- *
  * @internal
  */
+#[CoversClass(ProjectRules::class)]
 final class ProjectRulesTest extends TestCase
 {
     public function testRulesAreUpToDate(): void

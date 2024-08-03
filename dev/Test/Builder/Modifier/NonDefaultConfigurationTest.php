@@ -18,13 +18,14 @@ use PhpCsFixer\FixerConfiguration\DeprecatedFixerOptionInterface;
 use PhpCsFixer\FixerFactory;
 use PhpCsFixer\RuleSet\RuleSet;
 use PhpCsFixerCustomFixers\Fixers;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Dev\Builder\Modifier\NonDefaultConfiguration
- *
  * @internal
  */
+#[CoversClass(NonDefaultConfiguration::class)]
 final class NonDefaultConfigurationTest extends TestCase
 {
     public function testRulesAreSorted(): void
@@ -48,17 +49,13 @@ final class NonDefaultConfigurationTest extends TestCase
         self::assertSame($sortedRules, $rules);
     }
 
-    /**
-     * @dataProvider provideRuleCases
-     */
+    #[DataProvider('provideRuleCases')]
     public function testRuleIsNotDeprecated(string $name): void
     {
         self::assertNotInstanceOf(DeprecatedFixerInterface::class, $this->getFixer($name));
     }
 
-    /**
-     * @dataProvider provideRuleCases
-     */
+    #[DataProvider('provideRuleCases')]
     public function testConfigKeysAreSorted(string $name, array $config): void
     {
         $sortedConfig = $config;
@@ -67,9 +64,7 @@ final class NonDefaultConfigurationTest extends TestCase
         self::assertSame($sortedConfig, $config);
     }
 
-    /**
-     * @dataProvider provideRuleCases
-     */
+    #[DataProvider('provideRuleCases')]
     public function testRuleIsNotUsingDefaultConfig(string $name, array $config): void
     {
         $defaultConfig = [];

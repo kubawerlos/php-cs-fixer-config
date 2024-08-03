@@ -12,15 +12,15 @@
 namespace Dev\Test\AutoReview;
 
 use PhpCsFixerConfig\Factory;
+use PHPUnit\Framework\Attributes\CoversNothing;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 
 /**
- * @coversNothing
- *
  * @internal
  */
+#[CoversNothing]
 final class SrcCodeTest extends TestCase
 {
     public function testOnlyFactoryClassIsPublic(): void

@@ -17,13 +17,14 @@ use PhpCsFixer\Fixer\FixerInterface;
 use PhpCsFixer\FixerFactory;
 use PhpCsFixer\RuleSet\RuleSet;
 use PhpCsFixerCustomFixers\Fixers;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Dev\Builder\Modifier\UnwantedRulesFilter
- *
  * @internal
  */
+#[CoversClass(UnwantedRulesFilter::class)]
 final class UnwantedRulesFilterTest extends TestCase
 {
     public function testRulesAreSorted(): void
@@ -36,9 +37,7 @@ final class UnwantedRulesFilterTest extends TestCase
         self::assertSame($sortedRules, $rules);
     }
 
-    /**
-     * @dataProvider provideRuleIsNotDeprecatedCases
-     */
+    #[DataProvider('provideRuleIsNotDeprecatedCases')]
     public function testRuleIsNotDeprecated(string $name): void
     {
         self::assertNotInstanceOf(DeprecatedFixerInterface::class, $this->getFixer($name));

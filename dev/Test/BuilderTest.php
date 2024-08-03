@@ -13,14 +13,14 @@ namespace Dev;
 
 use Dev\Builder\Modifier\NonDefaultConfiguration;
 use Dev\Builder\Modifier\UnwantedRulesFilter;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \Dev\Builder\Modifier\NonDefaultConfiguration
- * @covers \Dev\Builder\Modifier\UnwantedRulesFilter
- *
  * @internal
  */
+#[CoversClass(NonDefaultConfiguration::class)]
+#[CoversClass(UnwantedRulesFilter::class)]
 final class BuilderTest extends TestCase
 {
     public function testNonDefaultRulesAreNotRemoved(): void
