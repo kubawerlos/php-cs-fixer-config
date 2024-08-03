@@ -11,14 +11,8 @@ jobs:
         include:
           - os: ubuntu-latest
             description: 'with the lowest dependencies'
-            php-version: '7.4'
-            composer_flags: '--prefer-lowest'
-          - os: ubuntu-latest
-            php-version: '7.4'
-          - os: ubuntu-latest
-            php-version: '8.0'
-          - os: ubuntu-latest
             php-version: '8.1'
+            composer_flags: '--prefer-lowest'
           - os: ubuntu-latest
             php-version: '8.2'
           - os: ubuntu-latest
@@ -41,8 +35,8 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
-          extensions: none, curl, dom, json, mbstring, opcache, openssl, simplexml, tokenizer, xml, xmlwriter
-          coverage: none
+          extensions: none, ctype, curl, dom, json, mbstring, opcache, openssl, simplexml, tokenizer, xml, xmlwriter
+          coverage: pcov
 
       - run: composer update --no-progress ${{ matrix.composer_flags }}
 

@@ -256,7 +256,7 @@ the LICENSE file that was distributed with this source code.
             'ordered_traits' => true,
             'ordered_types' => true,
             'php_unit_assert_new_names' => true,
-            'php_unit_attributes' => false,
+            'php_unit_attributes' => true,
             'php_unit_construct' => true,
             'php_unit_data_provider_name' => true,
             'php_unit_data_provider_return_type' => true,

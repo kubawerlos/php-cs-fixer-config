@@ -13,13 +13,13 @@ namespace Dev;
 
 use PhpCsFixer\Config;
 use PhpCsFixerConfig\Factory;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \PhpCsFixerConfig\Factory
- *
  * @internal
  */
+#[CoversClass(Factory::class)]
 final class FactoryTest extends TestCase
 {
     public function testCreateForLibrary(): void

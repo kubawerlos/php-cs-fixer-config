@@ -29,7 +29,6 @@ final class UnwantedRulesFilter
         'multiline_string_to_heredoc',
         'not_operator_with_space',
         'not_operator_with_successor_space',
-        'php_unit_attributes', // @todo: remove when PHP 7 lost support
         'php_unit_size_class',
         'phpdoc_summary',
         'single_line_comment_spacing', // CommentSurroundedBySpacesFixer used
