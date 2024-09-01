@@ -13,6 +13,7 @@ namespace PhpCsFixerConfig;
 
 use PhpCsFixer\Config;
 use PhpCsFixer\ConfigInterface;
+use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
 use PhpCsFixerCustomFixers\Fixers;
 
 /**
@@ -34,6 +35,7 @@ final class Factory
     {
         return (new Config())
             ->registerCustomFixers(new Fixers())
+            ->setParallelConfig(ParallelConfigFactory::detect())
             ->setRiskyAllowed(true)
             ->setRules($rules->getRules());
     }
