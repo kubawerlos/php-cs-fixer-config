@@ -64,7 +64,7 @@ final class FixInitTest extends TestCase
         self::expectException(\RuntimeException::class);
         self::expectExceptionMessage(\sprintf('PHP CS Fixer config (at %s) already exists.', $configPath));
 
-        (new FixInit())->init(__DIR__ . '/_/creating_when_config_exists');
+        (new FixInit())->init(__DIR__ . \DIRECTORY_SEPARATOR . '_' . \DIRECTORY_SEPARATOR . 'creating_when_config_exists');
     }
 
     public function testCreatingWhenFixScriptExists(): void
