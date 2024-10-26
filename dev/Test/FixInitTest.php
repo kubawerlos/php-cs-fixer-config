@@ -21,7 +21,7 @@ use Symfony\Component\Filesystem\Filesystem;
  * @internal
  */
 #[CoversClass(FixInit::class)]
-#[RequiresOperatingSystemFamily('Darwin|Linux')]
+#[RequiresOperatingSystemFamily('Linux')]
 final class FixInitTest extends TestCase
 {
     public static function setUpBeforeClass(): void
