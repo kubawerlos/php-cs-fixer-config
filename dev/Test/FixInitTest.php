@@ -13,6 +13,7 @@ namespace Dev;
 
 use PhpCsFixerConfig\FixInit;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RequiresOperatingSystemFamily;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Filesystem\Filesystem;
 
@@ -20,6 +21,7 @@ use Symfony\Component\Filesystem\Filesystem;
  * @internal
  */
 #[CoversClass(FixInit::class)]
+#[RequiresOperatingSystemFamily('Linux')]
 final class FixInitTest extends TestCase
 {
     public static function setUpBeforeClass(): void
@@ -58,13 +60,13 @@ final class FixInitTest extends TestCase
         $filesystem = new Filesystem();
         $filesystem->mkdir(__DIR__ . '/_/creating_when_config_exists');
 
-        $configPath = \sprintf(__DIR__ . '%1$s_%1$screating_when_config_exists%1$s.php-cs-fixer.php', \DIRECTORY_SEPARATOR);
+        $configPath = __DIR__ . '/_/creating_when_config_exists/.php-cs-fixer.php';
         $filesystem->dumpFile($configPath, '<?php return $foo;');
 
         self::expectException(\RuntimeException::class);
         self::expectExceptionMessage(\sprintf('PHP CS Fixer config (at %s) already exists.', $configPath));
 
-        (new FixInit())->init(__DIR__ . \DIRECTORY_SEPARATOR . '_' . \DIRECTORY_SEPARATOR . 'creating_when_config_exists');
+        (new FixInit())->init(__DIR__ . '/_/creating_when_config_exists');
     }
 
     public function testCreatingWhenFixScriptExists(): void
