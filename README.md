@@ -11,6 +11,7 @@ Provides a configuration for PHP CS Fixer.
 ## Installation
 ```bash
 composer require --dev kubawerlos/php-cs-fixer-config
+php vendor/bin/fixinit
 ```
 
 
