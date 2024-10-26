@@ -26,6 +26,9 @@
             "Dev\\": "./dev"
         }
     },
+    "bin": [
+        "fixinit"
+    ],
     "scripts": {
         "fix": [
             "@php ./dev/build.php"

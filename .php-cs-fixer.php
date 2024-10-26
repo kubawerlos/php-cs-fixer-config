@@ -20,5 +20,6 @@ return Factory::createForLibrary('kubawerlos/php-cs-fixer-config', 'Kuba Werłos
         Finder::create()
             ->files()
             ->ignoreDotFiles(false)
-            ->in(__DIR__),
+            ->in(__DIR__)
+            ->append([__DIR__ . '/fixinit']),
     );
