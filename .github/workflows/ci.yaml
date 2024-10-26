@@ -36,9 +36,8 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           extensions: none, ctype, curl, dom, json, mbstring, opcache, openssl, simplexml, tokenizer, xml, xmlwriter
-          coverage: pcov
+          coverage: none
 
-      - run: php -r 'var_dump(PHP_OS_FAMILY);'
       - run: composer update --no-progress ${{ matrix.composer_flags }}
 
       - run: composer verify
