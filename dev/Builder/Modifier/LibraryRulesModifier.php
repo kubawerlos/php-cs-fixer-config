@@ -50,6 +50,7 @@ final class LibraryRulesModifier
             'requires',
             'return',
             'runInSeparateProcess',
+            'template',
             'var',
         ]];
 
