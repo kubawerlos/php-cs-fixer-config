@@ -366,7 +366,7 @@ final class ProjectRules implements RulesInterface
             Fixer\ConstructorEmptyBracesFixer::name() => true,
             Fixer\DeclareAfterOpeningTagFixer::name() => true,
             Fixer\EmptyFunctionBodyFixer::name() => true,
-            Fixer\IssetToArrayKeyExistsFixer::name() => true,
+            Fixer\IssetToArrayKeyExistsFixer::name() => false,
             Fixer\MultilineCommentOpeningClosingAloneFixer::name() => true,
             Fixer\MultilinePromotedPropertiesFixer::name() => true,
             Fixer\NoCommentedOutCodeFixer::name() => true,
