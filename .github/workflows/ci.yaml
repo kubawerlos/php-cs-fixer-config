@@ -25,7 +25,8 @@ jobs:
             php-version: '8.3'
           - os: ubuntu-latest
             php-version: '8.4'
-            composer_flags: '--ignore-platform-reqs'
+          - os: ubuntu-latest
+            php-version: '8.5'
     runs-on: ${{ matrix.os }}
     env:
       PHP_CS_FIXER_IGNORE_ENV: 1
