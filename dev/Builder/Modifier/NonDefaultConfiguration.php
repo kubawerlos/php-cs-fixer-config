@@ -35,7 +35,7 @@ final class NonDefaultConfiguration
         $rules['method_argument_space'] = ['on_multiline' => 'ensure_fully_multiline'];
         $rules['native_constant_invocation'] = ['scope' => 'namespaced', 'strict' => true];
         $rules['native_function_invocation'] = ['include' => ['@all'], 'scope' => 'namespaced', 'strict' => true];
-        $rules['no_extra_blank_lines'] = ['tokens' => \array_diff((new \ReflectionClass(NoExtraBlankLinesFixer::class))->getStaticPropertyValue('availableTokens'), ['use_trait'])];
+        $rules['no_extra_blank_lines'] = ['tokens' => \array_diff((new \ReflectionClass(NoExtraBlankLinesFixer::class))->getConstant('AVAILABLE_TOKENS'), ['use_trait'])];
         $rules['no_superfluous_phpdoc_tags'] = ['remove_inheritdoc' => true];
         $rules['numeric_literal_separator'] = ['strategy' => 'no_separator'];
         $rules['php_unit_data_provider_static'] = ['force' => true];

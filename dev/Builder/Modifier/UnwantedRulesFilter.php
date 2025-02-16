@@ -22,6 +22,7 @@ final class UnwantedRulesFilter
         'blank_line_between_import_groups',
         'combine_consecutive_issets',
         'combine_consecutive_unsets',
+        'general_attribute_remove',
         'general_phpdoc_annotation_remove',
         'global_namespace_import',
         'group_import',
