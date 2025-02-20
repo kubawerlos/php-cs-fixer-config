@@ -60,9 +60,6 @@ final class Rules
      */
     public function getRules(): array
     {
-        return \array_filter(
-            $this->rules,
-            static fn ($config): bool => $config !== false,
-        );
+        return $this->rules;
     }
 }
