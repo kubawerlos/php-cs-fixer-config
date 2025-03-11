@@ -13,6 +13,7 @@ namespace Tests\Builder\Modifier;
 
 use PhpCsFixer\Fixer\DeprecatedFixerInterface;
 use PhpCsFixer\Fixer\FixerInterface;
+use PhpCsFixer\Fixer\PhpUnit\PhpUnitTestCaseStaticMethodCallsFixer;
 use PhpCsFixer\FixerConfiguration\DeprecatedFixerOptionInterface;
 use PhpCsFixer\FixerFactory;
 use PhpCsFixer\RuleSet\RuleSet;
@@ -20,6 +21,7 @@ use PhpCsFixerConfig\Builder\Modifier\NonDefaultConfiguration;
 use PhpCsFixerCustomFixers\Fixers;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\RequiresPhpunit;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -85,6 +87,42 @@ final class NonDefaultConfigurationTest extends TestCase
     {
         foreach ((new NonDefaultConfiguration())([]) as $name => $config) {
             yield $name => [$name, $config];
+        }
+    }
+
+    #[RequiresPhpunit('>= 11.0')]
+    public static function testPhpUnitMethods(): void
+    {
+        $fixerReflection = new \ReflectionClass(PhpUnitTestCaseStaticMethodCallsFixer::class);
+        $availableMethods = \array_keys($fixerReflection->getConstant('STATIC_METHODS'));
+
+        $testCaseReflection = new \ReflectionClass(TestCase::class);
+
+        $nonDefaultConfiguration = new NonDefaultConfiguration();
+        $configMethods = $nonDefaultConfiguration([])['php_unit_test_case_static_method_calls']['methods'];
+
+        $sortedConfigMethods = $configMethods;
+        \ksort($sortedConfigMethods);
+
+        self::assertSame($sortedConfigMethods, $configMethods);
+
+        foreach ($configMethods as $method => $callType) {
+            self::assertSame(
+                PhpUnitTestCaseStaticMethodCallsFixer::CALL_TYPE_THIS,
+                $callType,
+                "Method '{$method}' must configured to use dynamic call.",
+            );
+        }
+
+        foreach ($availableMethods as $method) {
+            if (!$testCaseReflection->hasMethod($method)) {
+                continue;
+            }
+            self::assertSame(
+                !$testCaseReflection->getMethod($method)->isStatic(),
+                isset($configMethods[$method]),
+                "Method '{$method}' must be configured dynamic call.",
+            );
         }
     }
 

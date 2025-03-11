@@ -39,7 +39,25 @@ final class NonDefaultConfiguration
         $rules['no_superfluous_phpdoc_tags'] = ['remove_inheritdoc' => true];
         $rules['numeric_literal_separator'] = ['strategy' => 'no_separator'];
         $rules['php_unit_data_provider_static'] = ['force' => true];
-        $rules['php_unit_test_case_static_method_calls'] = ['call_type' => 'self'];
+        $rules['php_unit_test_case_static_method_calls'] = [
+            'call_type' => 'self',
+            'methods' => [
+                'any' => 'this',
+                'atLeast' => 'this',
+                'atLeastOnce' => 'this',
+                'atMost' => 'this',
+                'exactly' => 'this',
+                'never' => 'this',
+                'onConsecutiveCalls' => 'this',
+                'once' => 'this',
+                'returnArgument' => 'this',
+                'returnCallback' => 'this',
+                'returnSelf' => 'this',
+                'returnValue' => 'this',
+                'returnValueMap' => 'this',
+                'throwException' => 'this',
+            ],
+        ];
         $rules['phpdoc_line_span'] = ['property' => 'single'];
         $rules['string_implicit_backslashes'] = ['single_quoted' => 'escape'];
         $rules['trailing_comma_in_multiline'] = ['after_heredoc' => true, 'elements' => self::trailingCommaInMultilineElements()];
