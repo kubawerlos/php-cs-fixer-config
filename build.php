@@ -9,12 +9,11 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/autoload.php';
 
-use Dev\Builder\Builder;
+use PhpCsFixerConfig\Builder\Builder;
 
 $builder = new Builder();
 $builder->build();
 
-exec('php ' . __DIR__ . '/../vendor/bin/php-cs-fixer fix --quiet');
+exec('php ' . __DIR__ . '/vendor/bin/php-cs-fixer fix --quiet');

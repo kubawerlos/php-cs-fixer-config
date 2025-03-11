@@ -9,13 +9,13 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace Dev\Test\Rules;
+namespace Tests\Rules;
 
-use Dev\Builder\Modifier\LibraryRulesModifier;
-use Dev\Builder\Rules;
 use PhpCsFixer\FixerFactory;
 use PhpCsFixer\RuleSet\RuleSet;
-use PhpCsFixerConfig\Rules\LibraryRules;
+use PhpCsFixerConfig\Builder\Modifier\ProjectRulesModifier;
+use PhpCsFixerConfig\Builder\Rules;
+use PhpCsFixerConfig\Rules\ProjectRules;
 use PhpCsFixerCustomFixers\Fixers;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
@@ -23,37 +23,25 @@ use PHPUnit\Framework\TestCase;
 /**
  * @internal
  */
-#[CoversClass(LibraryRules::class)]
-final class LibraryRulesTest extends TestCase
+#[CoversClass(ProjectRules::class)]
+final class ProjectRulesTest extends TestCase
 {
     public function testRulesAreUpToDate(): void
     {
-        $libraryRules = new LibraryRules('library name', 'library author', 2000);
+        $projectRules = new ProjectRules();
 
         $rules = new Rules();
-        $rules->apply(new LibraryRulesModifier());
-        $rules->apply(static function (array $rules): array {
-            $rules['header_comment']['header'] = \trim('
-This file is part of library name.
-
-(c) 2000 library author
-
-For the full copyright and license information, please view
-the LICENSE file that was distributed with this source code.
-        ');
-
-            return $rules;
-        });
+        $rules->apply(new ProjectRulesModifier());
 
         self::assertSame(
             $rules->getRules(),
-            $libraryRules->getRules(),
+            $projectRules->getRules(),
         );
     }
 
     public function testRulesBuildInConfig(): void
     {
-        $rules = new LibraryRules('library name', 'library author', 2000);
+        $rules = new ProjectRules();
 
         $ruleSet = new RuleSet($rules->getRules());
 

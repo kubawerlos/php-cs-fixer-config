@@ -23,7 +23,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Dev\\": "./dev"
+            "Tests\\": "./tests"
         }
     },
     "bin": [
@@ -31,7 +31,7 @@
     ],
     "scripts": {
         "fix": [
-            "@php ./dev/build.php"
+            "@php ./build.php"
         ],
         "verify": [
             "@putenv PHP_CS_FIXER_FUTURE_MODE=1",

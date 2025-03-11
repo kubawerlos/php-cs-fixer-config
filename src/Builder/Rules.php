@@ -9,12 +9,12 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace Dev\Builder;
+namespace PhpCsFixerConfig\Builder;
 
-use Dev\Builder\Modifier\NonDefaultConfiguration;
-use Dev\Builder\Modifier\UnwantedRulesFilter;
 use PhpCsFixer\Fixer\DeprecatedFixerInterface;
 use PhpCsFixer\FixerFactory;
+use PhpCsFixerConfig\Builder\Modifier\NonDefaultConfiguration;
+use PhpCsFixerConfig\Builder\Modifier\UnwantedRulesFilter;
 use PhpCsFixerCustomFixers\Fixers;
 
 /**

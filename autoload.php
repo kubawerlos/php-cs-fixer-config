@@ -9,7 +9,9 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-$phar = __DIR__ . '/../vendor/php-cs-fixer/shim/php-cs-fixer.phar';
+require __DIR__ . '/vendor/autoload.php';
+
+$phar = __DIR__ . '/vendor/php-cs-fixer/shim/php-cs-fixer.phar';
 
 $pharLoaded = Phar::loadPhar($phar, 'php-cs-fixer.phar');
 if (!$pharLoaded) {
