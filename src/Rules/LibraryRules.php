@@ -281,6 +281,16 @@ the LICENSE file that was distributed with this source code.
             'php_unit_test_annotation' => true,
             'php_unit_test_case_static_method_calls' => [
                 'call_type' => 'self',
+                'methods' => [
+                    'any' => 'this',
+                    'atLeast' => 'this',
+                    'atLeastOnce' => 'this',
+                    'atMost' => 'this',
+                    'exactly' => 'this',
+                    'never' => 'this',
+                    'once' => 'this',
+                    'throwException' => 'this',
+                ],
             ],
             'php_unit_test_class_requires_covers' => true,
             'phpdoc_add_missing_param_annotation' => true,
