@@ -237,6 +237,7 @@ final class ProjectRules implements RulesInterface
             'php_unit_assert_new_names' => true,
             'php_unit_attributes' => true,
             'php_unit_construct' => true,
+            'php_unit_data_provider_method_order' => true,
             'php_unit_data_provider_name' => true,
             'php_unit_data_provider_return_type' => true,
             'php_unit_data_provider_static' => [
