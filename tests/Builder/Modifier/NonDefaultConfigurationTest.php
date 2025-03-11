@@ -96,7 +96,7 @@ final class NonDefaultConfigurationTest extends TestCase
         $fixerReflection = new \ReflectionClass(PhpUnitTestCaseStaticMethodCallsFixer::class);
         $availableMethods = \array_keys($fixerReflection->getConstant('STATIC_METHODS'));
 
-        $fixerReflection = new \ReflectionClass(TestCase::class);
+        $testCaseReflection = new \ReflectionClass(TestCase::class);
 
         $nonDefaultConfiguration = new NonDefaultConfiguration();
         $configMethods = $nonDefaultConfiguration([])['php_unit_test_case_static_method_calls']['methods'];
@@ -115,10 +115,13 @@ final class NonDefaultConfigurationTest extends TestCase
         }
 
         foreach ($availableMethods as $method) {
+            if (!$testCaseReflection->hasMethod($method)) {
+                continue;
+            }
             self::assertSame(
-                $fixerReflection->hasMethod($method) && !$fixerReflection->getMethod($method)->isStatic(),
+                !$testCaseReflection->getMethod($method)->isStatic(),
                 isset($configMethods[$method]),
-                "Method '{$method}' must be configured dynamic call if is not static.",
+                "Method '{$method}' must be configured dynamic call.",
             );
         }
     }

@@ -48,7 +48,13 @@ final class NonDefaultConfiguration
                 'atMost' => 'this',
                 'exactly' => 'this',
                 'never' => 'this',
+                'onConsecutiveCalls' => 'this',
                 'once' => 'this',
+                'returnArgument' => 'this',
+                'returnCallback' => 'this',
+                'returnSelf' => 'this',
+                'returnValue' => 'this',
+                'returnValueMap' => 'this',
                 'throwException' => 'this',
             ],
         ];
