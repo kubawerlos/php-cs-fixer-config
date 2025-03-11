@@ -9,10 +9,10 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace Dev\Builder;
+namespace PhpCsFixerConfig\Builder;
 
-use Dev\Builder\Modifier\LibraryRulesModifier;
-use Dev\Builder\Modifier\ProjectRulesModifier;
+use PhpCsFixerConfig\Builder\Modifier\LibraryRulesModifier;
+use PhpCsFixerConfig\Builder\Modifier\ProjectRulesModifier;
 
 /**
  * @internal

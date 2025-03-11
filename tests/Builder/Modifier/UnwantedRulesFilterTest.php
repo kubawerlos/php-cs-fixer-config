@@ -9,13 +9,13 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace Dev\Test\Builder\Modifier;
+namespace Tests\Builder\Modifier;
 
-use Dev\Builder\Modifier\UnwantedRulesFilter;
 use PhpCsFixer\Fixer\DeprecatedFixerInterface;
 use PhpCsFixer\Fixer\FixerInterface;
 use PhpCsFixer\FixerFactory;
 use PhpCsFixer\RuleSet\RuleSet;
+use PhpCsFixerConfig\Builder\Modifier\UnwantedRulesFilter;
 use PhpCsFixerCustomFixers\Fixers;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;

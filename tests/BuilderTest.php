@@ -9,10 +9,10 @@
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace Dev;
+namespace Tests;
 
-use Dev\Builder\Modifier\NonDefaultConfiguration;
-use Dev\Builder\Modifier\UnwantedRulesFilter;
+use PhpCsFixerConfig\Builder\Modifier\NonDefaultConfiguration;
+use PhpCsFixerConfig\Builder\Modifier\UnwantedRulesFilter;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 

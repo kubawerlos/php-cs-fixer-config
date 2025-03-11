@@ -1,5 +1,8 @@
-/dev/ export-ignore
 /.* export-ignore
+/src/Builder export-ignore
+/tests/ export-ignore
+/autoload.php export-ignore
+/build.php export-ignore
 /phpunit.xml export-ignore
 
 * text eol=lf
