@@ -361,7 +361,13 @@ final class ProjectRules implements RulesInterface
             'ternary_to_null_coalescing' => true,
             'trailing_comma_in_multiline' => [
                 'after_heredoc' => true,
-                'elements' => self::trailingCommaInMultilineElements(),
+                'elements' => [
+                    'arguments',
+                    'array_destructuring',
+                    'arrays',
+                    'match',
+                    'parameters',
+                ],
             ],
             'trim_array_spaces' => true,
             'type_declaration_spaces' => [
@@ -428,19 +434,5 @@ final class ProjectRules implements RulesInterface
             Fixer\SingleSpaceBeforeStatementFixer::name() => true,
             Fixer\StringableInterfaceFixer::name() => true,
         ];
-    }
-
-    /**
-     * @return list<string>
-     */
-    private static function trailingCommaInMultilineElements(): array
-    {
-        $elements = ['arguments', 'arrays'];
-        if (\PHP_VERSION_ID >= 80000) {
-            $elements[] = 'match';
-            $elements[] = 'parameters';
-        }
-
-        return $elements;
     }
 }
