@@ -45,15 +45,9 @@ final class Builder
     {
         $arrayRules = $rules->getRules();
 
-        $arrayRules['trailing_comma_in_multiline'] = [
-            'after_heredoc' => true,
-            'elements' => '__TRAILING_COMMA_IN_MULTILINE__PLACEHOLDER__',
-        ];
-
         $array = \var_export($arrayRules, true);
         $array = \preg_replace('/\\d+\\s*=>/', '', $array);
         $array = \str_replace("'__HEADER_PLACEHOLDER__'", '$this->header', $array);
-        $array = \str_replace("'__TRAILING_COMMA_IN_MULTILINE__PLACEHOLDER__'", 'self::trailingCommaInMultilineElements()', $array);
 
         $path = __DIR__ . '/../../src/Rules/' . $name . '.php';
 

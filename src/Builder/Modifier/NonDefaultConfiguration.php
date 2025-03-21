@@ -11,11 +11,11 @@
 
 namespace PhpCsFixerConfig\Builder\Modifier;
 
+use PhpCsFixer\Fixer\ControlStructure\TrailingCommaInMultilineFixer;
 use PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer;
 use PhpCsFixer\Fixer\Whitespace\TypeDeclarationSpacesFixer;
 use PhpCsFixer\FixerConfiguration\AllowedValueSubset;
 use PhpCsFixer\FixerConfiguration\FixerConfigurationResolverInterface;
-use PhpCsFixer\FixerConfiguration\FixerOption;
 
 /**
  * @internal
@@ -88,13 +88,13 @@ final class NonDefaultConfiguration
      */
     private static function trailingCommaInMultilineElements(): array
     {
-        $elements = ['arguments', 'arrays'];
-        if (\PHP_VERSION_ID >= 80000) {
-            $elements[] = 'match';
-            $elements[] = 'parameters';
-        }
+        $fixerConfigurationResolver = \Closure::bind(
+            static fn (TrailingCommaInMultilineFixer $fixer): FixerConfigurationResolverInterface => $fixer->getConfigurationDefinition(),
+            null,
+            TrailingCommaInMultilineFixer::class,
+        )(new TrailingCommaInMultilineFixer());
 
-        return $elements;
+        return self::getAllowedValuesForOption($fixerConfigurationResolver, 'elements');
     }
 
     private static function typeDeclarationSpacesElements(): array
@@ -104,14 +104,21 @@ final class NonDefaultConfiguration
             null,
             TypeDeclarationSpacesFixer::class,
         )(new TypeDeclarationSpacesFixer());
-        \assert($fixerConfigurationResolver instanceof FixerConfigurationResolverInterface);
 
-        $option = $fixerConfigurationResolver->getOptions()[0];
-        \assert($option instanceof FixerOption);
+        return self::getAllowedValuesForOption($fixerConfigurationResolver, 'elements');
+    }
 
-        $allowedValues = $option->getAllowedValues()[0];
-        \assert($allowedValues instanceof AllowedValueSubset);
+    private static function getAllowedValuesForOption(FixerConfigurationResolverInterface $fixerConfigurationResolver, string $optionName): array
+    {
+        foreach ($fixerConfigurationResolver->getOptions() as $option) {
+            if ($option->getName() !== $optionName) {
+                continue;
+            }
 
-        return $allowedValues->getAllowedValues();
+            $allowedValues = $option->getAllowedValues()[0];
+            \assert($allowedValues instanceof AllowedValueSubset);
+
+            return $allowedValues->getAllowedValues();
+        }
     }
 }
