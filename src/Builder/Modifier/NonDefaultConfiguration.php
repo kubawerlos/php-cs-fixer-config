@@ -11,11 +11,12 @@
 
 namespace PhpCsFixerConfig\Builder\Modifier;
 
-use PhpCsFixer\Fixer\ControlStructure\TrailingCommaInMultilineFixer;
-use PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer;
-use PhpCsFixer\Fixer\Whitespace\TypeDeclarationSpacesFixer;
+use PhpCsFixer\Fixer\ConfigurableFixerInterface;
 use PhpCsFixer\FixerConfiguration\AllowedValueSubset;
 use PhpCsFixer\FixerConfiguration\FixerConfigurationResolverInterface;
+use PhpCsFixer\FixerFactory;
+use PhpCsFixer\RuleSet\RuleSet;
+use PhpCsFixerCustomFixers\Fixers;
 
 /**
  * @internal
@@ -39,7 +40,12 @@ final class NonDefaultConfiguration
         $rules['method_argument_space'] = ['on_multiline' => 'ensure_fully_multiline'];
         $rules['native_constant_invocation'] = ['scope' => 'namespaced', 'strict' => true];
         $rules['native_function_invocation'] = ['include' => ['@all'], 'scope' => 'namespaced', 'strict' => true];
-        $rules['no_extra_blank_lines'] = ['tokens' => self::noExtraBlankLinesTokens()];
+        $rules['no_extra_blank_lines'] = [
+            'tokens' => \array_diff(
+                self::getFullSet('no_extra_blank_lines', 'tokens'),
+                ['use_trait'],
+            ),
+        ];
         $rules['no_superfluous_phpdoc_tags'] = ['remove_inheritdoc' => true];
         $rules['numeric_literal_separator'] = ['strategy' => 'no_separator'];
         $rules['php_unit_data_provider_static'] = ['force' => true];
@@ -64,52 +70,28 @@ final class NonDefaultConfiguration
         ];
         $rules['phpdoc_line_span'] = ['property' => 'single'];
         $rules['string_implicit_backslashes'] = ['single_quoted' => 'escape'];
-        $rules['trailing_comma_in_multiline'] = ['after_heredoc' => true, 'elements' => self::trailingCommaInMultilineElements()];
-        $rules['type_declaration_spaces'] = ['elements' => self::typeDeclarationSpacesElements()];
+        $rules['trailing_comma_in_multiline'] = ['after_heredoc' => true, 'elements' => self::getFullSet('trailing_comma_in_multiline', 'elements')];
+        $rules['type_declaration_spaces'] = ['elements' => self::getFullSet('type_declaration_spaces', 'elements')];
         $rules['whitespace_after_comma_in_array'] = ['ensure_single_space' => true];
         $rules['yoda_style'] = ['equal' => false, 'identical' => false, 'less_and_greater' => false];
 
         return $rules;
     }
 
-    /**
-     * @return list<string>
-     */
-    private static function noExtraBlankLinesTokens(): array
+    private static function getFullSet(string $fixerName, string $optionName): array
     {
-        return \array_diff(
-            (new \ReflectionClass(NoExtraBlankLinesFixer::class))->getConstant('AVAILABLE_TOKENS'),
-            ['use_trait'],
-        );
-    }
+        $fixers = (new FixerFactory())
+            ->registerBuiltInFixers()
+            ->registerCustomFixers(\iterator_to_array(new Fixers()))
+            ->useRuleSet(new RuleSet([$fixerName => true]))
+            ->getFixers();
 
-    /**
-     * @return list<string>
-     */
-    private static function trailingCommaInMultilineElements(): array
-    {
         $fixerConfigurationResolver = \Closure::bind(
-            static fn (TrailingCommaInMultilineFixer $fixer): FixerConfigurationResolverInterface => $fixer->getConfigurationDefinition(),
+            static fn (ConfigurableFixerInterface $fixer): FixerConfigurationResolverInterface => $fixer->getConfigurationDefinition(),
             null,
-            TrailingCommaInMultilineFixer::class,
-        )(new TrailingCommaInMultilineFixer());
+            \get_class($fixers[0]),
+        )($fixers[0]);
 
-        return self::getAllowedValuesForOption($fixerConfigurationResolver, 'elements');
-    }
-
-    private static function typeDeclarationSpacesElements(): array
-    {
-        $fixerConfigurationResolver = \Closure::bind(
-            static fn (TypeDeclarationSpacesFixer $fixer): FixerConfigurationResolverInterface => $fixer->getConfigurationDefinition(),
-            null,
-            TypeDeclarationSpacesFixer::class,
-        )(new TypeDeclarationSpacesFixer());
-
-        return self::getAllowedValuesForOption($fixerConfigurationResolver, 'elements');
-    }
-
-    private static function getAllowedValuesForOption(FixerConfigurationResolverInterface $fixerConfigurationResolver, string $optionName): array
-    {
         foreach ($fixerConfigurationResolver->getOptions() as $option) {
             if ($option->getName() !== $optionName) {
                 continue;
