@@ -3,7 +3,6 @@
 <phpunit xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
          xsi:noNamespaceSchemaLocation='./vendor/phpunit/phpunit/phpunit.xsd'
          bootstrap='./autoload.php'
-         cacheDirectory='.phpunit.cache'
          cacheResult='false'
          colors='true'
          requireCoverageMetadata='true'
@@ -26,10 +25,4 @@
             <directory>./src/</directory>
         </include>
     </source>
-
-    <coverage>
-        <report>
-            <text outputFile='php://stdout' showOnlySummary='true' />
-        </report>
-    </coverage>
 </phpunit>
