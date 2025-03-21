@@ -1,3 +1,4 @@
-/dev/Test/_
 /vendor/
+/.phpunit.cache
 /composer.lock
+/phpunit.xml
