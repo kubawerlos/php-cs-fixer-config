@@ -12,6 +12,10 @@
 namespace PhpCsFixerConfig\Builder\Modifier;
 
 use PhpCsFixer\Fixer\Whitespace\NoExtraBlankLinesFixer;
+use PhpCsFixer\Fixer\Whitespace\TypeDeclarationSpacesFixer;
+use PhpCsFixer\FixerConfiguration\AllowedValueSubset;
+use PhpCsFixer\FixerConfiguration\FixerConfigurationResolverInterface;
+use PhpCsFixer\FixerConfiguration\FixerOption;
 
 /**
  * @internal
@@ -61,6 +65,7 @@ final class NonDefaultConfiguration
         $rules['phpdoc_line_span'] = ['property' => 'single'];
         $rules['string_implicit_backslashes'] = ['single_quoted' => 'escape'];
         $rules['trailing_comma_in_multiline'] = ['after_heredoc' => true, 'elements' => self::trailingCommaInMultilineElements()];
+        $rules['type_declaration_spaces'] = ['elements' => self::typeDeclarationSpacesElements()];
         $rules['whitespace_after_comma_in_array'] = ['ensure_single_space' => true];
         $rules['yoda_style'] = ['equal' => false, 'identical' => false, 'less_and_greater' => false];
 
@@ -90,5 +95,23 @@ final class NonDefaultConfiguration
         }
 
         return $elements;
+    }
+
+    private static function typeDeclarationSpacesElements(): array
+    {
+        $fixerConfigurationResolver = \Closure::bind(
+            static fn (TypeDeclarationSpacesFixer $fixer): FixerConfigurationResolverInterface => $fixer->getConfigurationDefinition(),
+            null,
+            TypeDeclarationSpacesFixer::class,
+        )(new TypeDeclarationSpacesFixer());
+        \assert($fixerConfigurationResolver instanceof FixerConfigurationResolverInterface);
+
+        $option = $fixerConfigurationResolver->getOptions()[0];
+        \assert($option instanceof FixerOption);
+
+        $allowedValues = $option->getAllowedValues()[0];
+        \assert($allowedValues instanceof AllowedValueSubset);
+
+        return $allowedValues->getAllowedValues();
     }
 }

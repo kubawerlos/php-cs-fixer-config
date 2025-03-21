@@ -386,7 +386,13 @@ the LICENSE file that was distributed with this source code.
                 'elements' => self::trailingCommaInMultilineElements(),
             ],
             'trim_array_spaces' => true,
-            'type_declaration_spaces' => true,
+            'type_declaration_spaces' => [
+                'elements' => [
+                    'constant',
+                    'function',
+                    'property',
+                ],
+            ],
             'types_spaces' => true,
             'unary_operator_spaces' => true,
             'use_arrow_functions' => true,
