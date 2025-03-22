@@ -505,6 +505,7 @@ the LICENSE file that was distributed with this source code.
             Fixer\PhpUnitAssertArgumentsOrderFixer::name() => true,
             Fixer\PhpUnitDedicatedAssertFixer::name() => true,
             Fixer\PhpUnitNoUselessReturnFixer::name() => true,
+            Fixer\PhpUnitRequiresConstraintFixer::name() => true,
             Fixer\PhpdocNoIncorrectVarAnnotationFixer::name() => true,
             Fixer\PhpdocNoSuperfluousParamFixer::name() => true,
             Fixer\PhpdocOnlyAllowedAnnotationsFixer::name() => [

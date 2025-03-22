@@ -477,6 +477,7 @@ final class ProjectRules implements RulesInterface
             Fixer\PhpUnitAssertArgumentsOrderFixer::name() => true,
             Fixer\PhpUnitDedicatedAssertFixer::name() => true,
             Fixer\PhpUnitNoUselessReturnFixer::name() => true,
+            Fixer\PhpUnitRequiresConstraintFixer::name() => true,
             Fixer\PhpdocNoIncorrectVarAnnotationFixer::name() => true,
             Fixer\PhpdocNoSuperfluousParamFixer::name() => true,
             Fixer\PhpdocOnlyAllowedAnnotationsFixer::name() => false,
