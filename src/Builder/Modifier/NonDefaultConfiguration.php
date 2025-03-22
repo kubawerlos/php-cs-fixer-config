@@ -40,6 +40,7 @@ final class NonDefaultConfiguration
         $rules['method_argument_space'] = ['on_multiline' => 'ensure_fully_multiline'];
         $rules['native_constant_invocation'] = ['scope' => 'namespaced', 'strict' => true];
         $rules['native_function_invocation'] = ['include' => ['@all'], 'scope' => 'namespaced', 'strict' => true];
+        $rules['no_alias_functions'] = ['sets' => self::getFullSet('no_alias_functions', 'sets')];
         $rules['no_extra_blank_lines'] = [
             'tokens' => \array_diff(
                 self::getFullSet('no_extra_blank_lines', 'tokens'),
@@ -47,8 +48,10 @@ final class NonDefaultConfiguration
             ),
         ];
         $rules['no_superfluous_phpdoc_tags'] = ['remove_inheritdoc' => true];
+        $rules['no_unneeded_control_parentheses'] = ['statements' => self::getFullSet('no_unneeded_control_parentheses', 'statements')];
         $rules['numeric_literal_separator'] = ['strategy' => 'no_separator'];
         $rules['php_unit_data_provider_static'] = ['force' => true];
+        $rules['php_unit_internal_class'] = ['types' => self::getFullSet('php_unit_internal_class', 'types')];
         $rules['php_unit_test_case_static_method_calls'] = [
             'call_type' => 'self',
             'methods' => [
@@ -69,8 +72,13 @@ final class NonDefaultConfiguration
             ],
         ];
         $rules['phpdoc_line_span'] = ['property' => 'single'];
+        $rules['phpdoc_order_by_value'] = ['annotations' => self::getFullSet('phpdoc_order_by_value', 'annotations')];
+        $rules['single_space_around_construct'] = ['constructs_preceded_by_a_single_space' => self::getFullSet('single_space_around_construct', 'constructs_preceded_by_a_single_space')];
         $rules['string_implicit_backslashes'] = ['single_quoted' => 'escape'];
-        $rules['trailing_comma_in_multiline'] = ['after_heredoc' => true, 'elements' => self::getFullSet('trailing_comma_in_multiline', 'elements')];
+        $rules['trailing_comma_in_multiline'] = [
+            'after_heredoc' => true,
+            'elements' => self::getFullSet('trailing_comma_in_multiline', 'elements'),
+        ];
         $rules['type_declaration_spaces'] = ['elements' => self::getFullSet('type_declaration_spaces', 'elements')];
         $rules['whitespace_after_comma_in_array'] = ['ensure_single_space' => true];
         $rules['yoda_style'] = ['equal' => false, 'identical' => false, 'less_and_greater' => false];
@@ -97,10 +105,13 @@ final class NonDefaultConfiguration
                 continue;
             }
 
-            $allowedValues = $option->getAllowedValues()[0];
-            \assert($allowedValues instanceof AllowedValueSubset);
+            $allowedValueSubset = $option->getAllowedValues()[0];
+            \assert($allowedValueSubset instanceof AllowedValueSubset);
 
-            return $allowedValues->getAllowedValues();
+            $allowedValues = $allowedValueSubset->getAllowedValues();
+            \sort($allowedValues, \SORT_FLAG_CASE | \SORT_STRING);
+
+            return $allowedValues;
         }
     }
 }
