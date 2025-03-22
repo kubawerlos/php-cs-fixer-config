@@ -12,11 +12,9 @@
 namespace Tests\AutoReview;
 
 use PhpCsFixer\Fixer\ConfigurableFixerInterface;
-use PhpCsFixer\Fixer\FixerInterface;
 use PhpCsFixer\FixerConfiguration\AllowedValueSubset;
 use PhpCsFixer\FixerConfiguration\FixerConfigurationResolverInterface;
 use PhpCsFixer\FixerFactory;
-use PhpCsFixer\RuleSet\RuleSet;
 use PhpCsFixerConfig\Builder\Modifier\NonDefaultConfiguration;
 use PhpCsFixerCustomFixers\Fixers;
 use PHPUnit\Framework\Attributes\CoversNothing;
@@ -91,16 +89,5 @@ final class RulesTest extends TestCase
             ],
             $options,
         );
-    }
-
-    private static function getFixer(string $name): FixerInterface
-    {
-        $fixers = (new FixerFactory())
-            ->registerBuiltInFixers()
-            ->registerCustomFixers(\iterator_to_array(new Fixers()))
-            ->useRuleSet(new RuleSet([$name => true]))
-            ->getFixers();
-
-        return $fixers[0];
     }
 }
