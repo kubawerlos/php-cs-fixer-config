@@ -28,7 +28,6 @@ final class LibraryRulesModifier
     {
         foreach (
             [
-                'heredoc_indentation',
                 'mb_str_functions',
                 NoNullableBooleanTypeFixer::name(),
             ] as $rule
