@@ -129,7 +129,7 @@ the LICENSE file that was distributed with this source code.
                 'location' => 'after_declare_strict',
             ],
             'heredoc_closing_marker' => false,
-            'heredoc_indentation' => false,
+            'heredoc_indentation' => true,
             'heredoc_to_nowdoc' => true,
             'implode_call' => true,
             'include' => true,
