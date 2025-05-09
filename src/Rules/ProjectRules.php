@@ -455,6 +455,7 @@ final class ProjectRules implements RulesInterface
             Fixer\ConstructorEmptyBracesFixer::name() => true,
             Fixer\DeclareAfterOpeningTagFixer::name() => true,
             Fixer\EmptyFunctionBodyFixer::name() => true,
+            Fixer\ForeachUseValueFixer::name() => true,
             Fixer\IssetToArrayKeyExistsFixer::name() => false,
             Fixer\MultilineCommentOpeningClosingAloneFixer::name() => true,
             Fixer\MultilinePromotedPropertiesFixer::name() => true,
@@ -474,6 +475,7 @@ final class ProjectRules implements RulesInterface
             Fixer\NoUselessDoctrineRepositoryCommentFixer::name() => true,
             Fixer\NoUselessParenthesisFixer::name() => true,
             Fixer\NoUselessStrlenFixer::name() => true,
+            Fixer\NoUselessWriteVisibilityFixer::name() => true,
             Fixer\PhpUnitAssertArgumentsOrderFixer::name() => true,
             Fixer\PhpUnitDedicatedAssertFixer::name() => true,
             Fixer\PhpUnitNoUselessReturnFixer::name() => true,
@@ -492,6 +494,7 @@ final class ProjectRules implements RulesInterface
             Fixer\SingleSpaceAfterStatementFixer::name() => true,
             Fixer\SingleSpaceBeforeStatementFixer::name() => true,
             Fixer\StringableInterfaceFixer::name() => true,
+            Fixer\TrimKeyFixer::name() => true,
         ];
     }
 }
