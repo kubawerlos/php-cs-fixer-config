@@ -16,7 +16,7 @@ namespace PhpCsFixerConfig\Builder\Modifier;
  */
 final class UnwantedRulesFilter
 {
-    private const UNWANTED_RULES = [
+    private const array UNWANTED_RULES = [
         'PhpCsFixerCustomFixers/isset_to_array_key_exists',
         'blank_line_after_opening_tag',
         'blank_line_between_import_groups',

@@ -495,6 +495,7 @@ final class ProjectRules implements RulesInterface
             Fixer\SingleSpaceBeforeStatementFixer::name() => true,
             Fixer\StringableInterfaceFixer::name() => true,
             Fixer\TrimKeyFixer::name() => true,
+            Fixer\TypedClassConstantFixer::name() => true,
         ];
     }
 }

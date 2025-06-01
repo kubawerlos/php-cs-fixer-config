@@ -9,8 +9,8 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "kubawerlos/php-cs-fixer-custom-fixers": "^3.25",
+        "php": "^8.3",
+        "kubawerlos/php-cs-fixer-custom-fixers": "^3.26",
         "php-cs-fixer/shim": "^3.71"
     },
     "require-dev": {
@@ -34,7 +34,7 @@
             "@php ./build.php"
         ],
         "verify": [
-            "@putenv PHP_CS_FIXER_FUTURE_MODE=1",
+            "@putenv PHP_CS_FIXER_IGNORE_ENV=1",
             "php-cs-fixer fix --ansi --show-progress=dots --diff --dry-run -vvv",
             "phpunit"
         ]

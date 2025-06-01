@@ -540,6 +540,7 @@ the LICENSE file that was distributed with this source code.
             Fixer\SingleSpaceBeforeStatementFixer::name() => true,
             Fixer\StringableInterfaceFixer::name() => true,
             Fixer\TrimKeyFixer::name() => true,
+            Fixer\TypedClassConstantFixer::name() => true,
         ];
     }
 }
