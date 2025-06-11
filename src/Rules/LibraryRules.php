@@ -531,6 +531,9 @@ the LICENSE file that was distributed with this source code.
             Fixer\PhpdocParamTypeFixer::name() => true,
             Fixer\PhpdocSelfAccessorFixer::name() => true,
             Fixer\PhpdocSingleLineVarFixer::name() => true,
+            Fixer\PhpdocTagNoNamedArgumentsFixer::name() => [
+                'directory' => \getcwd() . '/src',
+            ],
             Fixer\PhpdocTypesCommaSpacesFixer::name() => true,
             Fixer\PhpdocTypesTrimFixer::name() => true,
             Fixer\PhpdocVarAnnotationToAssertFixer::name() => true,

@@ -52,7 +52,7 @@ final class NonDefaultConfigurationTest extends TestCase
     }
 
     #[DataProvider('provideRuleCases')]
-    public function testRuleIsNotDeprecated(string $name): void
+    public function testRuleIsNotDeprecated(string $name, array $config): void
     {
         self::assertNotInstanceOf(DeprecatedFixerInterface::class, $this->getFixer($name));
     }
