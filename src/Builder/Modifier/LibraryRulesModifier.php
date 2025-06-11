@@ -13,6 +13,7 @@ namespace PhpCsFixerConfig\Builder\Modifier;
 
 use PhpCsFixerCustomFixers\Fixer\NoNullableBooleanTypeFixer;
 use PhpCsFixerCustomFixers\Fixer\PhpdocOnlyAllowedAnnotationsFixer;
+use PhpCsFixerCustomFixers\Fixer\PhpdocTagNoNamedArgumentsFixer;
 
 /**
  * @internal
@@ -52,6 +53,7 @@ final class LibraryRulesModifier
             'template',
             'var',
         ]];
+        $rules[PhpdocTagNoNamedArgumentsFixer::name()] = ['directory' => '__GETCWD_SRC_PLACEHOLDER__'];
 
         return $rules;
     }

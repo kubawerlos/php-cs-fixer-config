@@ -18,6 +18,8 @@ use PhpCsFixerCustomFixers\Fixers;
 
 /**
  * Class to create PHP CS Fixer config.
+ *
+ * @no-named-arguments
  */
 final class Factory
 {

@@ -486,6 +486,7 @@ final class ProjectRules implements RulesInterface
             Fixer\PhpdocParamTypeFixer::name() => true,
             Fixer\PhpdocSelfAccessorFixer::name() => true,
             Fixer\PhpdocSingleLineVarFixer::name() => true,
+            Fixer\PhpdocTagNoNamedArgumentsFixer::name() => false,
             Fixer\PhpdocTypesCommaSpacesFixer::name() => true,
             Fixer\PhpdocTypesTrimFixer::name() => true,
             Fixer\PhpdocVarAnnotationToAssertFixer::name() => true,
