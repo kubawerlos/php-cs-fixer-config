@@ -20,11 +20,11 @@ final class FixInit
 {
     public function init(string $cwd): void
     {
-        $this->initConfig($cwd);
-        $this->initScript($cwd);
+        self::initConfig($cwd);
+        self::initScript($cwd);
     }
 
-    private function initConfig(string $cwd): void
+    private static function initConfig(string $cwd): void
     {
         $path = $cwd . \DIRECTORY_SEPARATOR . '.php-cs-fixer.php';
         if (\file_exists($path)) {
@@ -52,7 +52,7 @@ final class FixInit
         );
     }
 
-    private function initScript(string $cwd): void
+    private static function initScript(string $cwd): void
     {
         $pharPath = \exec('which composer');
         if ($pharPath === '') {

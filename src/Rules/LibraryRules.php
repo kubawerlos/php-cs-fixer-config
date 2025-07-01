@@ -158,6 +158,7 @@ the LICENSE file that was distributed with this source code.
             'modernize_strpos' => true,
             'modernize_types_casting' => true,
             'multiline_comment_opening_closing' => true,
+            'multiline_promoted_properties' => true,
             'multiline_string_to_heredoc' => false,
             'multiline_whitespace_before_semicolons' => true,
             'native_constant_invocation' => [
@@ -173,6 +174,9 @@ the LICENSE file that was distributed with this source code.
                 'strict' => true,
             ],
             'native_type_declaration_casing' => true,
+            'new_expression_parentheses' => [
+                'use_parentheses' => true,
+            ],
             'new_with_parentheses' => true,
             'no_alias_functions' => [
                 'sets' => [
@@ -210,6 +214,7 @@ the LICENSE file that was distributed with this source code.
                     'attribute',
                     'break',
                     'case',
+                    'comma',
                     'continue',
                     'curly_brace_block',
                     'default',
@@ -432,6 +437,7 @@ the LICENSE file that was distributed with this source code.
             'standardize_not_equals' => true,
             'statement_indentation' => true,
             'static_lambda' => true,
+            'static_private_method' => true,
             'strict_comparison' => true,
             'strict_param' => true,
             'string_implicit_backslashes' => [
@@ -486,7 +492,6 @@ the LICENSE file that was distributed with this source code.
             Fixer\ForeachUseValueFixer::name() => true,
             Fixer\IssetToArrayKeyExistsFixer::name() => false,
             Fixer\MultilineCommentOpeningClosingAloneFixer::name() => true,
-            Fixer\MultilinePromotedPropertiesFixer::name() => true,
             Fixer\NoCommentedOutCodeFixer::name() => true,
             Fixer\NoDoctrineMigrationsGeneratedCommentFixer::name() => true,
             Fixer\NoDuplicatedArrayKeyFixer::name() => true,
