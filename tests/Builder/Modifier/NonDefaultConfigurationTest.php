@@ -54,7 +54,7 @@ final class NonDefaultConfigurationTest extends TestCase
     #[DataProvider('provideRuleCases')]
     public function testRuleIsNotDeprecated(string $name, array $config): void
     {
-        self::assertNotInstanceOf(DeprecatedFixerInterface::class, $this->getFixer($name));
+        self::assertNotInstanceOf(DeprecatedFixerInterface::class, self::getFixer($name));
     }
 
     #[DataProvider('provideRuleCases')]
@@ -70,7 +70,7 @@ final class NonDefaultConfigurationTest extends TestCase
     public function testRuleIsNotUsingDefaultConfig(string $name, array $config): void
     {
         $defaultConfig = [];
-        foreach ($this->getFixer($name)->getConfigurationDefinition()->getOptions() as $option) {
+        foreach (self::getFixer($name)->getConfigurationDefinition()->getOptions() as $option) {
             if ($option instanceof DeprecatedFixerOptionInterface) {
                 continue;
             }
@@ -126,7 +126,7 @@ final class NonDefaultConfigurationTest extends TestCase
         }
     }
 
-    private function getFixer(string $name): FixerInterface
+    private static function getFixer(string $name): FixerInterface
     {
         $fixers = (new FixerFactory())
             ->registerBuiltInFixers()

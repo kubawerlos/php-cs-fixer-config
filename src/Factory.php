@@ -39,6 +39,7 @@ final class Factory
             ->registerCustomFixers(new Fixers())
             ->setParallelConfig(ParallelConfigFactory::detect())
             ->setRiskyAllowed(true)
-            ->setRules($rules->getRules());
+            ->setRules($rules->getRules())
+            ->setUnsupportedPhpVersionAllowed(true);
     }
 }

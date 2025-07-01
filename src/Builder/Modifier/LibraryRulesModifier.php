@@ -37,6 +37,7 @@ final class LibraryRulesModifier
         }
 
         $rules['header_comment'] = ['header' => '__HEADER_PLACEHOLDER__', 'location' => 'after_declare_strict'];
+        $rules['new_expression_parentheses'] = ['use_parentheses' => true];
         $rules[PhpdocOnlyAllowedAnnotationsFixer::name()] = ['elements' => [
             'covers',
             'coversNothing',

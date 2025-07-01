@@ -21,27 +21,27 @@ final class Builder
 {
     public function build(): void
     {
-        $this->buildLibraryRules();
-        $this->buildProjectRules();
+        self::buildLibraryRules();
+        self::buildProjectRules();
     }
 
-    private function buildLibraryRules(): void
+    private static function buildLibraryRules(): void
     {
         $rules = new Rules();
         $rules->apply(new LibraryRulesModifier());
 
-        $this->dumpClass('LibraryRules', $rules);
+        self::dumpClass('LibraryRules', $rules);
     }
 
-    private function buildProjectRules(): void
+    private static function buildProjectRules(): void
     {
         $rules = new Rules();
         $rules->apply(new ProjectRulesModifier());
 
-        $this->dumpClass('ProjectRules', $rules);
+        self::dumpClass('ProjectRules', $rules);
     }
 
-    private function dumpClass(string $name, Rules $rules): void
+    private static function dumpClass(string $name, Rules $rules): void
     {
         $arrayRules = $rules->getRules();
 

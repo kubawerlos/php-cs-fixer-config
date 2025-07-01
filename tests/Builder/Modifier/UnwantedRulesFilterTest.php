@@ -40,7 +40,7 @@ final class UnwantedRulesFilterTest extends TestCase
     #[DataProvider('provideRuleIsNotDeprecatedCases')]
     public function testRuleIsNotDeprecated(string $name): void
     {
-        self::assertNotInstanceOf(DeprecatedFixerInterface::class, $this->getFixer($name));
+        self::assertNotInstanceOf(DeprecatedFixerInterface::class, self::getFixer($name));
     }
 
     public static function provideRuleIsNotDeprecatedCases(): iterable
@@ -50,7 +50,7 @@ final class UnwantedRulesFilterTest extends TestCase
         }
     }
 
-    private function getFixer(string $name): FixerInterface
+    private static function getFixer(string $name): FixerInterface
     {
         $fixers = (new FixerFactory())
             ->registerBuiltInFixers()
