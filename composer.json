@@ -10,8 +10,8 @@
     ],
     "require": {
         "php": "^8.3",
-        "kubawerlos/php-cs-fixer-custom-fixers": "^3.28",
-        "php-cs-fixer/shim": "^3.76"
+        "kubawerlos/php-cs-fixer-custom-fixers": "^3.32",
+        "php-cs-fixer/shim": "^3.84"
     },
     "require-dev": {
         "phpunit/phpunit": "^10.5.45 || ^11.5.12 || ^12.0.7"
