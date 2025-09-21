@@ -73,6 +73,7 @@ final class NonDefaultConfiguration
         ];
         $rules['phpdoc_line_span'] = ['property' => 'single'];
         $rules['phpdoc_order_by_value'] = ['annotations' => self::getFullSet('phpdoc_order_by_value', 'annotations')];
+        $rules['phpdoc_tag_no_named_arguments'] = ['fix_internal' => false];
         $rules['single_space_around_construct'] = ['constructs_preceded_by_a_single_space' => self::getFullSet('single_space_around_construct', 'constructs_preceded_by_a_single_space')];
         $rules['string_implicit_backslashes'] = ['single_quoted' => 'escape'];
         $rules['trailing_comma_in_multiline'] = [
