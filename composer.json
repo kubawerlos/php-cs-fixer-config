@@ -10,7 +10,7 @@
     ],
     "require": {
         "php": "^8.3",
-        "kubawerlos/php-cs-fixer-custom-fixers": "^3.33",
+        "kubawerlos/php-cs-fixer-custom-fixers": "^3.34",
         "php-cs-fixer/shim": "^3.87"
     },
     "require-dev": {
