@@ -387,6 +387,9 @@ the LICENSE file that was distributed with this source code.
             'phpdoc_single_line_var_spacing' => true,
             'phpdoc_summary' => false,
             'phpdoc_tag_casing' => true,
+            'phpdoc_tag_no_named_arguments' => [
+                'fix_internal' => false,
+            ],
             'phpdoc_tag_type' => true,
             'phpdoc_to_comment' => true,
             'phpdoc_to_param_type' => true,
@@ -539,11 +542,9 @@ the LICENSE file that was distributed with this source code.
                 ],
             ],
             Fixer\PhpdocParamTypeFixer::name() => true,
+            Fixer\PhpdocPropertySortedFixer::name() => true,
             Fixer\PhpdocSelfAccessorFixer::name() => true,
             Fixer\PhpdocSingleLineVarFixer::name() => true,
-            Fixer\PhpdocTagNoNamedArgumentsFixer::name() => [
-                'directory' => \getcwd() . '/src',
-            ],
             Fixer\PhpdocTypesCommaSpacesFixer::name() => true,
             Fixer\PhpdocTypesTrimFixer::name() => true,
             Fixer\PhpdocVarAnnotationToAssertFixer::name() => true,

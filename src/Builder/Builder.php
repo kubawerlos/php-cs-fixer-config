@@ -47,7 +47,6 @@ final class Builder
 
         $array = \var_export($arrayRules, true);
         $array = \preg_replace('/\\d+\\s*=>/', '', $array);
-        $array = \str_replace("'__GETCWD_SRC_PLACEHOLDER__'", "getcwd() . '/src'", $array);
         $array = \str_replace("'__HEADER_PLACEHOLDER__'", '$this->header', $array);
 
         $path = __DIR__ . '/../../src/Rules/' . $name . '.php';

@@ -12,7 +12,6 @@
 namespace PhpCsFixerConfig\Builder\Modifier;
 
 use PhpCsFixerCustomFixers\Fixer\PhpdocOnlyAllowedAnnotationsFixer;
-use PhpCsFixerCustomFixers\Fixer\PhpdocTagNoNamedArgumentsFixer;
 
 /**
  * @internal
@@ -31,7 +30,6 @@ final class ProjectRulesModifier
                 'header_comment',
                 'php_unit_internal_class',
                 PhpdocOnlyAllowedAnnotationsFixer::name(),
-                PhpdocTagNoNamedArgumentsFixer::name(),
             ] as $rule
         ) {
             $rules[$rule] = false;
