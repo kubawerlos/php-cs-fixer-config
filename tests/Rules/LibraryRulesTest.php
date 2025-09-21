@@ -16,7 +16,6 @@ use PhpCsFixer\RuleSet\RuleSet;
 use PhpCsFixerConfig\Builder\Modifier\LibraryRulesModifier;
 use PhpCsFixerConfig\Builder\Rules;
 use PhpCsFixerConfig\Rules\LibraryRules;
-use PhpCsFixerCustomFixers\Fixer\PhpdocTagNoNamedArgumentsFixer;
 use PhpCsFixerCustomFixers\Fixers;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
@@ -42,7 +41,6 @@ This file is part of library name.
 For the full copyright and license information, please view
 the LICENSE file that was distributed with this source code.
         ');
-            $rules[PhpdocTagNoNamedArgumentsFixer::name()]['directory'] = \getcwd() . '/src';
 
             return $rules;
         });
