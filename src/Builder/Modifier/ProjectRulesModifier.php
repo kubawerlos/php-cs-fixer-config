@@ -29,6 +29,7 @@ final class ProjectRulesModifier
             [
                 'header_comment',
                 'php_unit_internal_class',
+                'phpdoc_tag_no_named_arguments',
                 PhpdocOnlyAllowedAnnotationsFixer::name(),
             ] as $rule
         ) {

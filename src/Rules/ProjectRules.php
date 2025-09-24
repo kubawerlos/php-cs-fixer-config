@@ -357,9 +357,7 @@ final class ProjectRules implements RulesInterface
             'phpdoc_single_line_var_spacing' => true,
             'phpdoc_summary' => false,
             'phpdoc_tag_casing' => true,
-            'phpdoc_tag_no_named_arguments' => [
-                'fix_internal' => false,
-            ],
+            'phpdoc_tag_no_named_arguments' => false,
             'phpdoc_tag_type' => true,
             'phpdoc_to_comment' => true,
             'phpdoc_to_param_type' => true,
