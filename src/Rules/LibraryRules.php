@@ -157,6 +157,7 @@ the LICENSE file that was distributed with this source code.
             'method_chaining_indentation' => true,
             'modernize_strpos' => true,
             'modernize_types_casting' => true,
+            'modifier_keywords' => true,
             'multiline_comment_opening_closing' => true,
             'multiline_promoted_properties' => true,
             'multiline_string_to_heredoc' => false,
@@ -476,7 +477,6 @@ the LICENSE file that was distributed with this source code.
             'types_spaces' => true,
             'unary_operator_spaces' => true,
             'use_arrow_functions' => true,
-            'visibility_required' => true,
             'void_return' => true,
             'whitespace_after_comma_in_array' => [
                 'ensure_single_space' => true,
