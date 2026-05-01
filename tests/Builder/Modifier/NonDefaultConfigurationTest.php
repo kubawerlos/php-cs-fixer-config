@@ -90,11 +90,11 @@ final class NonDefaultConfigurationTest extends TestCase
         }
     }
 
-    #[RequiresPhpunit('>= 11.0')]
+    #[RequiresPhpunit('>= 11.0.0')]
     public static function testPhpUnitMethods(): void
     {
         $fixerReflection = new \ReflectionClass(PhpUnitTestCaseStaticMethodCallsFixer::class);
-        $availableMethods = \array_keys($fixerReflection->getConstant('STATIC_METHODS'));
+        $availableMethods = \array_keys($fixerReflection->getReflectionConstant('METHODS')->getValue());
 
         $testCaseReflection = new \ReflectionClass(TestCase::class);
 

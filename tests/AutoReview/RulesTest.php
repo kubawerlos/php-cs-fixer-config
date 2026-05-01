@@ -85,6 +85,7 @@ final class RulesTest extends TestCase
             [
                 'blank_line_before_statement' => ['statements' => true],
                 'no_extra_blank_lines' => ['tokens' => true],
+                'phpdoc_types' => ['exclude' => true],
                 'single_space_after_construct' => ['constructs' => true],
             ],
             $options,
